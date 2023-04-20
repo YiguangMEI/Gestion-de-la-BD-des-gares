@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="1553px" preserveAspectRatio="none" style="width:1467px;height:1553px;background:#FFFFFF;" version="1.1" viewBox="0 0 1467 1553" width="1467px" zoomAndPan="magnify"><defs/><g><!--MD5=[219e3b0e571a795e7845d490f5dd3922]
+class TypeTrain--><g id="elem_TypeTrain"><rect codeLine="4" fill="#F1F1F1" height="123.7813" id="TypeTrain" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="209" x="524.5" y="881"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="68" x="595" y="898.9951">TypeTrain</text><line style="stroke:#181818;stroke-width:0.5;" x1="525.5" x2="732.5" y1="907.2969" y2="907.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="129" x="530.5" y="924.292">nom : string {key}</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="176" x="530.5" y="940.5889">nbPlace : integer {&gt;= 0}</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="197" x="530.5" y="956.8857">vitesseMax : Integer {&gt;= 0}</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="159" x="530.5" y="973.1826">aPremiereClasse : bool</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="170" x="530.5" y="989.4795">coutHeure : float {&gt;=0}</text><line style="stroke:#181818;stroke-width:0.5;" x1="525.5" x2="732.5" y1="996.7813" y2="996.7813"/></g><!--MD5=[ff74e0f0bb3fa51f8c743cb54bdb5b13]
+class Train--><g id="elem_Train"><rect codeLine="12" fill="#F1F1F1" height="58.5938" id="Train" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="174" x="542" y="737"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="34" x="612" y="754.9951">Train</text><line style="stroke:#181818;stroke-width:0.5;" x1="543" x2="715" y1="763.2969" y2="763.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="162" x="548" y="780.292">numero : integer {key}</text><line style="stroke:#181818;stroke-width:0.5;" x1="543" x2="715" y1="787.5938" y2="787.5938"/></g><!--MD5=[29fd02854dc779f7f51704ab7ef04435]
+class Voyageur--><g id="elem_Voyageur"><rect codeLine="17" fill="#F1F1F1" height="107.4844" id="Voyageur" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="138" x="757" y="7"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="65" x="793.5" y="24.9951">Voyageur</text><line style="stroke:#181818;stroke-width:0.5;" x1="758" x2="894" y1="33.2969" y2="33.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="83" x="763" y="50.292">nom : string</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="106" x="763" y="66.5889">prenom : string</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="126" x="763" y="82.8857">adresse : Adresse</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="115" x="763" y="99.1826">tel : string {key}</text><line style="stroke:#181818;stroke-width:0.5;" x1="758" x2="894" y1="106.4844" y2="106.4844"/></g><!--MD5=[769423b84427c558f4ffad427eb9628e]
+class VoyageurRegulier--><g id="elem_VoyageurRegulier"><rect codeLine="24" fill="#F1F1F1" height="58.5938" id="VoyageurRegulier" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="211" x="618.5" y="191"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="122" x="663" y="208.9951">VoyageurRegulier</text><line style="stroke:#181818;stroke-width:0.5;" x1="619.5" x2="828.5" y1="217.2969" y2="217.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="199" x="624.5" y="234.292">numeroCarte : integer {key}</text><line style="stroke:#181818;stroke-width:0.5;" x1="619.5" x2="828.5" y1="241.5938" y2="241.5938"/></g><!--MD5=[d0d6d9f3b9d120ca1d89ce4c1be214ae]
+class StatutCarte--><g id="elem_StatutCarte"><rect codeLine="28" fill="#F1F1F1" height="58.5938" id="StatutCarte" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="156" x="646" y="392"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="78" x="685" y="409.9951">StatutCarte</text><line style="stroke:#181818;stroke-width:0.5;" x1="647" x2="801" y1="418.2969" y2="418.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="144" x="652" y="435.292">intitulé : string {key}</text><line style="stroke:#181818;stroke-width:0.5;" x1="647" x2="801" y1="442.5938" y2="442.5938"/></g><!--MD5=[ea193e58bf01a8bb640ee5c4ebd1a9a0]
+class Transport--><g id="elem_Transport"><rect codeLine="33" fill="#F1F1F1" height="74.8906" id="Transport" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="156" x="929" y="1193"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="67" x="973.5" y="1210.9951">Transport</text><line style="stroke:#181818;stroke-width:0.5;" x1="930" x2="1084" y1="1219.2969" y2="1219.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="144" x="935" y="1236.292">type : TypeTransport</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="77" x="935" y="1252.5889">ville : string</text><line style="stroke:#181818;stroke-width:0.5;" x1="930" x2="1084" y1="1259.8906" y2="1259.8906"/></g><!--MD5=[3110dbef8258a6b966b2e55d3546d21d]
+class Hotel--><g id="elem_Hotel"><rect codeLine="38" fill="#F1F1F1" height="91.1875" id="Hotel" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="138" x="1120" y="1185"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="36" x="1171" y="1202.9951">Hotel</text><line style="stroke:#181818;stroke-width:0.5;" x1="1121" x2="1257" y1="1211.2969" y2="1211.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="83" x="1126" y="1228.292">nom : string</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="126" x="1126" y="1244.5889">adresse : Adresse</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="77" x="1126" y="1260.8857">ville : string</text><line style="stroke:#181818;stroke-width:0.5;" x1="1121" x2="1257" y1="1268.1875" y2="1268.1875"/></g><!--MD5=[dd6f0fbd4f45e5ee36d89a4344f439d9]
+class Gare--><g id="elem_Gare"><rect codeLine="45" fill="#F1F1F1" height="107.4844" id="Gare" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="147" x="853.5" y="1353"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="33" x="910.5" y="1370.9951">Gare</text><line style="stroke:#181818;stroke-width:0.5;" x1="854.5" x2="999.5" y1="1379.2969" y2="1379.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="83" x="859.5" y="1396.292">nom : string</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="77" x="859.5" y="1412.5889">ville : string</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="126" x="859.5" y="1428.8857">adresse : Adresse</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="135" x="859.5" y="1445.1826">zonehoraire : string</text><line style="stroke:#181818;stroke-width:0.5;" x1="854.5" x2="999.5" y1="1452.4844" y2="1452.4844"/></g><!--MD5=[c4d7de58b6b74e0d187415ecc51ab732]
+class Ligne--><g id="elem_Ligne"><rect codeLine="52" fill="#F1F1F1" height="42.2969" id="Ligne" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="43" x="643.5" y="1082"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="37" x="646.5" y="1099.9951">Ligne</text><line style="stroke:#181818;stroke-width:0.5;" x1="644.5" x2="685.5" y1="1108.2969" y2="1108.2969"/><line style="stroke:#181818;stroke-width:0.5;" x1="644.5" x2="685.5" y1="1116.2969" y2="1116.2969"/></g><!--MD5=[1b851f8443963f4c05b7f43cd561e329]
+class LigneDessert--><g id="elem_LigneDessert"><rect codeLine="54" fill="#F1F1F1" height="58.5938" id="LigneDessert" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="170" x="724" y="1201"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="92" x="763" y="1218.9951">LigneDessert</text><line style="stroke:#181818;stroke-width:0.5;" x1="725" x2="893" y1="1227.2969" y2="1227.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="158" x="730" y="1244.292">ordre : integer {&gt;= 0}</text><line style="stroke:#181818;stroke-width:0.5;" x1="725" x2="893" y1="1251.5938" y2="1251.5938"/></g><!--MD5=[2b591347219e2d308bdf301555c4d62b]
+class Voyage--><g id="elem_Voyage"><rect codeLine="58" fill="#F1F1F1" height="58.5938" id="Voyage" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="147" x="555.5" y="593"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="51" x="603.5" y="610.9951">Voyage</text><line style="stroke:#181818;stroke-width:0.5;" x1="556.5" x2="701.5" y1="619.2969" y2="619.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="135" x="561.5" y="636.292">heureDepart : Time</text><line style="stroke:#181818;stroke-width:0.5;" x1="556.5" x2="701.5" y1="643.5938" y2="643.5938"/></g><!--MD5=[cf01e16a3306166fc0401e59043eba98]
+class Plannification--><g id="elem_Plannification"><rect codeLine="62" fill="#F1F1F1" height="188.9688" id="Plannification" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="136" x="244" y="327"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="90" x="267" y="344.9951">Plannification</text><line style="stroke:#181818;stroke-width:0.5;" x1="245" x2="379" y1="353.2969" y2="353.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="124" x="250" y="370.292">dateDepart : Date</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="97" x="250" y="386.5889">dateFin : Date</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="76" x="250" y="402.8857">lundi : bool</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="81" x="250" y="419.1826">mardi : bool</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="104" x="250" y="435.4795">mercredi : bool</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="76" x="250" y="451.7764">jeudi : bool</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="103" x="250" y="468.0732">vendredi : bool</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="93" x="250" y="484.3701">samedi : bool</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="103" x="250" y="500.667">vendredi : bool</text><line style="stroke:#181818;stroke-width:0.5;" x1="245" x2="379" y1="507.9688" y2="507.9688"/></g><!--MD5=[cdf1c16f361a4d58abb19711c9bdfb91]
+class JourException--><g id="elem_JourException"><rect codeLine="74" fill="#F1F1F1" height="74.8906" id="JourException" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="130" x="7" y="384"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="94" x="25" y="401.9951">JourException</text><line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="136" y1="410.2969" y2="410.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="118" x="13" y="427.292">jour : Date {key}</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="77" x="13" y="443.5889">ajout : bool</text><line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="136" y1="450.8906" y2="450.8906"/></g><!--MD5=[e3e82e52c8be264d7330cb7d2eaa7151]
+class VoyageDessert--><g id="elem_VoyageDessert"><rect codeLine="79" fill="#F1F1F1" height="74.8906" id="VoyageDessert" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="147" x="306.5" y="729"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="106" x="327" y="746.9951">VoyageDessert</text><line style="stroke:#181818;stroke-width:0.5;" x1="307.5" x2="452.5" y1="755.2969" y2="755.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="135" x="312.5" y="772.292">heureDepart : Time</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="135" x="312.5" y="788.5889">heureArrivee : Time</text><line style="stroke:#181818;stroke-width:0.5;" x1="307.5" x2="452.5" y1="795.8906" y2="795.8906"/></g><!--MD5=[5d57f717c5d5963ea0d5127ec122f9f6]
+class Trajet--><g id="elem_Trajet"><rect codeLine="84" fill="#F1F1F1" height="91.1875" id="Trajet" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="248" x="1028" y="376"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="39" x="1132.5" y="393.9951">Trajet</text><line style="stroke:#181818;stroke-width:0.5;" x1="1029" x2="1275" y1="402.2969" y2="402.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="236" x="1034" y="419.292">numeroTrajet : integer {local key}</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="212" x="1034" y="435.5889">numeroPlace : integer {&gt;= 0}</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="125" x="1034" y="451.8857">prix : float {&gt;= 0}</text><line style="stroke:#181818;stroke-width:0.5;" x1="1029" x2="1275" y1="459.1875" y2="459.1875"/></g><!--MD5=[2f53d364b4e3b7d802afc29f72dce69f]
+class Billet--><g id="elem_Billet"><rect codeLine="91" fill="#F1F1F1" height="58.5938" id="Billet" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="127" x="864.5" y="191"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="33" x="911.5" y="208.9951">Billet</text><line style="stroke:#181818;stroke-width:0.5;" x1="865.5" x2="990.5" y1="217.2969" y2="217.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="115" x="870.5" y="234.292">assurance : bool</text><line style="stroke:#181818;stroke-width:0.5;" x1="865.5" x2="990.5" y1="241.5938" y2="241.5938"/></g><!--MD5=[baa9984992e9f8642779104e82881e55]
+class TypePaiement--><g id="elem_TypePaiement"><rect codeLine="95" fill="#F1F1F1" height="58.5938" id="TypePaiement" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="156" x="837" y="392"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="99" x="865.5" y="409.9951">TypePaiement</text><line style="stroke:#181818;stroke-width:0.5;" x1="838" x2="992" y1="418.2969" y2="418.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="144" x="843" y="435.292">intitulé : string {key}</text><line style="stroke:#181818;stroke-width:0.5;" x1="838" x2="992" y1="442.5938" y2="442.5938"/></g><!--MD5=[cbf682cb6c5baf3a24cd44b737805cda]
+class TypeTransport--><g id="elem_TypeTransport"><rect codeLine="102" fill="#F1F1F1" height="88.8594" id="TypeTransport" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="107" x="930.5" y="16"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="94" x="937" y="32.1387">«enumeration»</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="101" x="933.5" y="47.9639">TypeTransport</text><line style="stroke:#181818;stroke-width:0.5;" x1="931.5" x2="1036.5" y1="56.2656" y2="56.2656"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="27" x="936.5" y="73.2607">Bus</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="27" x="936.5" y="89.5576">Taxi</text><line style="stroke:#181818;stroke-width:0.5;" x1="931.5" x2="1036.5" y1="96.8594" y2="96.8594"/></g><!--MD5=[70c811998a0d7544d2536fae1accd5d3]
+class Adresse--><g id="elem_Adresse"><rect codeLine="109" fill="#F1F1F1" height="105.1563" id="Adresse" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="160" x="1073" y="8"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="73" x="1116.5" y="24.1387">«dataType»</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="57" x="1124.5" y="39.9639">Adresse</text><line style="stroke:#181818;stroke-width:0.5;" x1="1074" x2="1232" y1="48.2656" y2="48.2656"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="146" x="1079" y="65.2607">numeroVoie : Integer</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="1079" y="81.5576">nomRue : string</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="148" x="1079" y="97.8545">codePostal : string[5]</text><line style="stroke:#181818;stroke-width:0.5;" x1="1074" x2="1232" y1="105.1563" y2="105.1563"/></g><ellipse cx="687" cy="1230.5" fill="#000000" rx="2" ry="2" style="stroke:none;stroke-width:1.0;"/><ellipse cx="269" cy="766.5" fill="#000000" rx="2" ry="2" style="stroke:none;stroke-width:1.0;"/><g id="elem_N1"><path d="M683.5,1521 L683.5,1546.1328 A0,0 0 0 0 683.5,1546.1328 L940.5,1546.1328 A0,0 0 0 0 940.5,1546.1328 L940.5,1531 L930.5,1521 L826.88,1521 L878.56,1460.15 L818.88,1521 L683.5,1521 A0,0 0 0 0 683.5,1521 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M930.5,1521 L930.5,1531 L940.5,1531 L930.5,1521 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="236" x="689.5" y="1538.0669">La zone horaire est sous format GMT</text></g><g id="elem_N2"><path d="M270,1218 L270,1243.1328 A0,0 0 0 0 270,1243.1328 L650,1243.1328 A0,0 0 0 0 650,1243.1328 L650,1228 L640,1218 L482.87,1218 L643.45,1117.19 L474.87,1218 L270,1218 A0,0 0 0 0 270,1218 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M640,1218 L640,1228 L650,1228 L640,1218 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="359" x="276" y="1235.0669">Sur une ligne ne peut circuler qu'un certain type de train</text></g><g id="elem_N3"><path d="M976,1521 L976,1546.1328 A0,0 0 0 0 976,1546.1328 L1110,1546.1328 A0,0 0 0 0 1110,1546.1328 L1110,1531 L1100,1521 L1036.03,1521 L975.86,1460.15 L1028.03,1521 L976,1521 A0,0 0 0 0 976,1521 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M1100,1521 L1100,1531 L1110,1531 L1100,1521 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="113" x="982" y="1538.0669">{(nom, ville) key}</text></g><g id="elem_N4"><path d="M270.5,930.5 L270.5,955.6328 A0,0 0 0 0 270.5,955.6328 L489.5,955.6328 A0,0 0 0 0 489.5,955.6328 L489.5,940.5 L479.5,930.5 L384,930.5 L380,804.08 L376,930.5 L270.5,930.5 A0,0 0 0 0 270.5,930.5 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M479.5,930.5 L479.5,940.5 L489.5,940.5 L479.5,930.5 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="198" x="276.5" y="947.5669">{heureArrivee &lt; heureDepart}</text></g><g id="elem_N5"><path d="M844,610 L844,635.1328 A0,0 0 0 0 844,635.1328 L1460,635.1328 A0,0 0 0 0 1460,635.1328 L1460,620 L1450,610 L1156,610 L1152,467.16 L1148,610 L844,610 A0,0 0 0 0 844,610 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M1450,610 L1450,620 L1460,620 L1450,610 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="595" x="850" y="627.0669">Pour un voyage donné, on ne peut pas avoir deux trajets à la même place aux mêmes arrêts</text></g><g id="elem_N6"><path d="M415,409 L415,417.5 L380.31,421.5 L415,425.5 L415,434.1328 A0,0 0 0 0 415,434.1328 L611,434.1328 A0,0 0 0 0 611,434.1328 L611,419 L601,409 L415,409 A0,0 0 0 0 415,409 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M601,409 L601,419 L611,419 L601,409 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="175" x="421" y="426.0669">{dateDepart, dateFin) key}</text></g><!--MD5=[eb160190a4659c6f28f5b1a5fd554492]
+link Transport to Gare--><g id="link_Transport_Gare"><path codeLine="117" d="M990.03,1268.4 C978.75,1292.94 963.76,1325.55 951.23,1352.81 " fill="none" id="Transport-Gare" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#000000" points="974.9117,1319.1094,981.3598,1312.1185,976.0191,1309.6636,974.9117,1319.1094" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="58" x="986" y="1319.0669">desservir</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="23" x="962.3147" y="1288.0063">0..*</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="23" x="929.861" y="1342.0144">1..*</text></g><!--MD5=[f7a9a44cfb7f51e7ca6abc4dd90e94cd]
+link Hotel to Gare--><g id="link_Hotel_Gare"><path codeLine="119" d="M1123.05,1276.11 C1100.84,1291.07 1075.88,1307.81 1053,1323 C1036.12,1334.21 1017.91,1346.19 1000.72,1357.45 " fill="none" id="Hotel-Gare" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#000000" points="1075.8364,1317.3349,1084.9957,1314.774,1081.7412,1309.8794,1075.8364,1317.3349" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="88" x="1089" y="1319.0669">est proche de</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="23" x="1089.1586" y="1295.6416">0..*</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="23" x="1008.5762" y="1349.2875">1..*</text></g><!--MD5=[77104d82a9b955aed19097f8ffd1ac14]
+reverse link Voyageur to VoyageurRegulier--><g id="link_Voyageur_VoyageurRegulier"><path codeLine="122" d="M781.14,130.99 C767.6,151.96 753.48,173.83 742.67,190.58 " fill="none" id="Voyageur-backto-VoyageurRegulier" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="none" points="775.31,127.12,792.04,114.11,787.07,134.71,775.31,127.12" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[db40987b230ea6b165d6fe89d20d2591]
+link VoyageurRegulier to StatutCarte--><g id="link_VoyageurRegulier_StatutCarte"><path codeLine="124" d="M724,250.01 C724,287.73 724,353.86 724,391.72 " fill="none" id="VoyageurRegulier-StatutCarte" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#000000" points="729,293.5664,731.9389,284.5213,726.0611,284.5213,729,293.5664" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="103" x="738" y="293.0669">a comme statut</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="23" x="698.6281" y="269.7658">0..*</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8" x="715.175" y="381.1535">1</text></g><!--MD5=[ebfe4f506484d4263f60bc9d8a1ece8d]
+link Train to TypeTrain--><g id="link_Train_TypeTrain"><path codeLine="127" d="M629,796.32 C629,819.26 629,852.18 629,880.92 " fill="none" id="Train-TypeTrain" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#000000" points="634,847.5664,636.9389,838.5213,631.0611,838.5213,634,847.5664" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="72" x="643" y="847.0669">est de type</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="23" x="603.8078" y="815.5524">1..*</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8" x="620.5375" y="869.962">1</text></g><!--MD5=[84fdd08486f5b806aee016a36efdd152]
+link Ligne to apoint27--><g id="link_Ligne_apoint27"><path d="M668.53,1124.16 C674.32,1157.15 685.31,1219.85 686.82,1228.5 " fill="none" id="Ligne-apoint27" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="23" x="643.2884" y="1144.2644">1..*</text></g><!--MD5=[c5a5693a196c883f7f5f1309efbf7ef1]
+link apoint27 to Gare--><g id="link_apoint27_Gare"><path d="M687.23,1232.75 C688.34,1238.4 693.56,1261.88 706,1276 C746.05,1321.47 806.07,1355.22 853.46,1376.85 " fill="none" id="apoint27-Gare" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="23" x="822.6204" y="1370.4759">2..*</text></g><!--MD5=[c4b00628750cb58592dd3e3782b4e506]
+link apoint27 to LigneDessert--><g id="link_apoint27_LigneDessert"><path d="M689.38,1230.5 C700.91,1230.5 712.43,1230.5 723.96,1230.5 " fill="none" id="apoint27-LigneDessert" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/></g><!--MD5=[fbba489d159a1ca7ee22e33b427c2205]
+link TypeTrain to Ligne--><g id="link_TypeTrain_Ligne"><path codeLine="133" d="M642.92,1005.09 C649.13,1032.35 656.03,1062.63 660.43,1081.96 " fill="none" id="TypeTrain-Ligne" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#000000" points="660.1105,1048.4415,660.9671,1038.9696,655.2361,1040.2751,660.1105,1048.4415" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="79" x="668" y="1048.0669">peut circuler</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8" x="636.005" y="1024.7875">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="23" x="632.9103" y="1070.9769">1..*</text></g><!--MD5=[1ce977dd6453d9ac909609cc4dbe0105]
+link Voyage to apoint34--><g id="link_Voyage_apoint34"><path d="M555.46,630.24 C481.02,640.46 366.17,665.93 289,729 C276.47,739.24 270.55,759.51 269.27,764.41 " fill="none" id="Voyage-apoint34" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="23" x="524.6204" y="627.3539">0..*</text></g><!--MD5=[d51467c829b9a133bbec8b127bd4c86f]
+link apoint34 to Gare--><g id="link_apoint34_Gare"><path d="M268.42,768.57 C262.7,779.15 217,866.13 217,942 C217,942 217,942 217,1231.5 C217,1361.5 671.73,1394.87 853.36,1403.01 " fill="none" id="apoint34-Gare" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="23" x="822.5112" y="1399.0475">2..*</text></g><!--MD5=[db65698ec31852be5ae17aa4758c3b1c]
+link apoint34 to VoyageDessert--><g id="link_apoint34_VoyageDessert"><path d="M271.17,766.5 C282.93,766.5 294.69,766.5 306.45,766.5 " fill="none" id="apoint34-VoyageDessert" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/></g><!--MD5=[78444d35b2b96caea38500effcf21dc1]
+link Voyage to Ligne--><g id="link_Voyage_Ligne"><path codeLine="139" d="M687.68,652.23 C699.78,660.42 711.43,670.35 720,682 C745.32,716.39 745.7,810.65 751,881 C756.71,956.82 794.71,986.56 756,1052 C741.13,1077.13 708.64,1090.48 686.78,1096.89 " fill="none" id="Voyage-Ligne" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#000000" points="754.9899,847.5664,757.9471,838.5273,752.0693,838.5154,754.9899,847.5664" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="124" x="764" y="847.0669">est programmé sur</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="23" x="673.9686" y="671.6796">1..*</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8" x="694.3529" y="1089.9349">1</text></g><!--MD5=[dbb29503f0bc14d96fd0da18e4a983ab]
+link Plannification to Voyage--><g id="link_Plannification_Voyage"><path codeLine="141" d="M380.06,502.26 C385.57,507.16 391.24,511.8 397,516 C445.45,551.32 507.61,578.8 555.39,596.86 " fill="none" id="Plannification-Voyage" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#000000" points="484.4003,556.9406,477.8356,550.0592,475.0445,555.2321,484.4003,556.9406" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="58" x="489" y="559.0669">plannifier</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="23" x="387.8917" y="506.5465">0..*</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="23" x="524.5439" y="590.8966">0..*</text></g><!--MD5=[cd28fbf3f358f1f8fde1139cdeaa622e]
+link JourException to Plannification--><g id="link_JourException_Plannification"><path codeLine="143" d="M137.26,421.5 C170.3,421.5 210.38,421.5 243.82,421.5 " fill="none" id="JourException-Plannification" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#000000" points="164.5,410.0664,155.4549,407.1275,155.4549,413.0053,164.5,410.0664" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="57" x="168.5" y="414.5669">impacter</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="23" x="145.1759" y="434.3528">0..*</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="23" x="212.9765" y="434.3133">0..*</text></g><!--MD5=[74e58aeeeba35d7192febcf5cc1529c3]
+link Voyage to Train--><g id="link_Voyage_Train"><path codeLine="145" d="M629,652.24 C629,676.87 629,712.18 629,736.81 " fill="none" id="Voyage-Train" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#000000" points="634,695.5664,636.9389,686.5213,631.0611,686.5213,634,695.5664" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="68" x="643" y="695.0669">assuré par</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="23" x="603.7359" y="671.6916">0..*</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8" x="620.125" y="725.8005">1</text></g><!--MD5=[9ea39919e0dcb6863049f26346c880de]
+link Trajet to Voyage--><g id="link_Trajet_Voyage"><path codeLine="147" d="M1093.71,467.17 C1069.2,484.33 1039.73,502.91 1011,516 C908.79,562.57 781.59,592.65 702.84,608.33 " fill="none" id="Trajet-Voyage" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#000000" points="931.2973,556.2648,940.8028,555.9566,938.8063,550.4282,931.2973,556.2648" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="66" x="945" y="559.0669">appartenir</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="23" x="1060.0234" y="487.3744">0..*</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8" x="710.5024" y="603.2903">1</text></g><!--MD5=[c1164ec98c08fbe40301f559a6d026ea]
+reverse link Billet to Trajet--><g id="link_Billet_Trajet"><path codeLine="150" d="M970.15,258.94 C1007.52,292.14 1062.15,340.68 1101.78,375.88 " fill="none" id="Billet-backto-Trajet" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="960.09,250.01,961.9246,256.9838,969.0676,257.9725,967.233,250.9987,960.09,250.01" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[f1b5e5ea9c335262b19a95543e842897]
+link Voyageur to Billet--><g id="link_Voyageur_Billet"><path codeLine="152" d="M859.96,114.11 C876.42,139.61 895.56,169.24 909.33,190.58 " fill="none" id="Voyageur-Billet" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#000000" points="897.712,156.767,895.275,147.574,890.3369,150.7621,897.712,156.767" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="53" x="904" y="157.0669">reserver</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8" x="855.9859" y="134.3649">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="23" x="880.1074" y="179.9846">1..*</text></g><!--MD5=[6ac24bdda190e27015508baeff5512d7]
+link Billet to TypePaiement--><g id="link_Billet_TypePaiement"><path codeLine="154" d="M926.14,250.01 C923.67,287.73 919.35,353.86 916.88,391.72 " fill="none" id="Billet-TypePaiement" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#000000" points="929.674,293.5558,933.1964,284.7216,927.3311,284.3383,929.674,293.5558" style="stroke:#000000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="36" x="939" y="293.0669">payer</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="23" x="900.3845" y="269.7658">0..*</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8" x="908.4428" y="381.1535">1</text></g><!--MD5=[0980f28b4e92a213ae7492a6540a4f36]
+@startuml
+
+' Classes
+
+class TypeTrain {
+	nom : string {key}
+	nbPlace : integer {>= 0}
+	vitesseMax : Integer {>= 0}
+	aPremiereClasse : bool
+	coutHeure : float {>=0}
+}
+
+class Train {
+	numero : integer {key}
+}
+
+
+class Voyageur {
+	nom : string
+	prenom : string
+	adresse : Adresse
+	tel : string {key}
+}
+
+class VoyageurRegulier {
+	numeroCarte : integer {key}
+}
+
+class StatutCarte {
+	intitulé : string {key}
+}
+
+
+class Transport {
+	type : TypeTransport
+	ville : string
+}
+
+class Hotel {
+	nom : string
+	adresse : Adresse
+	ville : string
+}
+
+
+class Gare {
+	nom : string
+	ville : string
+	adresse : Adresse
+	zonehoraire : string
+}
+
+class Ligne
+
+class LigneDessert {
+	ordre : integer {>= 0}
+}
+
+class Voyage {
+	heureDepart : Time
+}
+
+class Plannification {
+	dateDepart : Date
+	dateFin : Date
+	lundi : bool
+	mardi : bool
+	mercredi : bool
+	jeudi : bool
+	vendredi : bool
+	samedi : bool
+	vendredi : bool
+}
+
+class JourException {
+	jour : Date {key}
+	ajout : bool
+}
+
+class VoyageDessert {
+	heureDepart : Time
+	heureArrivee : Time
+}
+
+class Trajet {
+	numeroTrajet : integer {local key}
+	numeroPlace : integer {>= 0}
+	prix : float {>= 0}
+}
+
+
+class Billet {
+	assurance : bool
+}
+
+class TypePaiement {
+	intitulé : string {key}
+}
+
+
+' Enumerations
+
+class TypeTransport <<enumeration>> {
+	Bus
+	Taxi
+}
+
+' DataTypes
+
+class Adresse <<dataType>> {
+	numeroVoie : Integer
+	nomRue : string
+	codePostal : string[5]
+}
+
+' Associations
+
+Transport "0..*" - - "1..*" Gare : desservir >
+
+Hotel "0..*" - - "1..*" Gare : est proche de >
+
+
+Voyageur <|- - VoyageurRegulier
+
+VoyageurRegulier "0..*" - - "1" StatutCarte : a comme statut >
+
+
+Train "1..*" - - "1" TypeTrain : est de type >
+
+
+Ligne "1..*" - - "2..*" Gare
+(Ligne, Gare) .. LigneDessert
+
+TypeTrain "1" - - "1..*" Ligne : peut circuler >
+
+
+Voyage "0..*" - - "2..*" Gare
+(Voyage, Gare) .. VoyageDessert
+
+Voyage "1..*" - - "1" Ligne : est programmé sur >
+
+Plannification "0..*" - - "0..*" Voyage : plannifier >
+
+JourException "0..*" - "0..*" Plannification : impacter >
+
+Voyage "0..*" - - "1" Train : assuré par >
+
+Trajet "0..*" - - "1" Voyage : appartenir >
+
+
+Billet *- - Trajet
+
+Voyageur "1" - - "1..*" Billet : reserver >
+
+Billet "0..*" - - "1" TypePaiement : payer >
+
+
+' Notes
+
+note "La zone horaire est sous format GMT" as N1
+Gare .. N1
+
+note "Sur une ligne ne peut circuler qu'un certain type de train" as N2
+Ligne .. N2
+
+note "{(nom, ville) key}" as N3
+Gare .. N3
+
+note "{heureArrivee < heureDepart}" as N4
+VoyageDessert .. N4
+
+note "Pour un voyage donné, on ne peut pas avoir deux trajets à la même place aux mêmes arrêts" as N5
+Trajet .. N5
+
+note "{dateDepart, dateFin) key}" as N6
+Plannification . N6
+
+' Config
+
+hide class circle
+
+@enduml
+
+@startuml
+
+
+class TypeTrain {
+	nom : string {key}
+	nbPlace : integer {>= 0}
+	vitesseMax : Integer {>= 0}
+	aPremiereClasse : bool
+	coutHeure : float {>=0}
+}
+
+class Train {
+	numero : integer {key}
+}
+
+
+class Voyageur {
+	nom : string
+	prenom : string
+	adresse : Adresse
+	tel : string {key}
+}
+
+class VoyageurRegulier {
+	numeroCarte : integer {key}
+}
+
+class StatutCarte {
+	intitulé : string {key}
+}
+
+
+class Transport {
+	type : TypeTransport
+	ville : string
+}
+
+class Hotel {
+	nom : string
+	adresse : Adresse
+	ville : string
+}
+
+
+class Gare {
+	nom : string
+	ville : string
+	adresse : Adresse
+	zonehoraire : string
+}
+
+class Ligne
+
+class LigneDessert {
+	ordre : integer {>= 0}
+}
+
+class Voyage {
+	heureDepart : Time
+}
+
+class Plannification {
+	dateDepart : Date
+	dateFin : Date
+	lundi : bool
+	mardi : bool
+	mercredi : bool
+	jeudi : bool
+	vendredi : bool
+	samedi : bool
+	vendredi : bool
+}
+
+class JourException {
+	jour : Date {key}
+	ajout : bool
+}
+
+class VoyageDessert {
+	heureDepart : Time
+	heureArrivee : Time
+}
+
+class Trajet {
+	numeroTrajet : integer {local key}
+	numeroPlace : integer {>= 0}
+	prix : float {>= 0}
+}
+
+
+class Billet {
+	assurance : bool
+}
+
+class TypePaiement {
+	intitulé : string {key}
+}
+
+
+
+class TypeTransport <<enumeration>> {
+	Bus
+	Taxi
+}
+
+
+class Adresse <<dataType>> {
+	numeroVoie : Integer
+	nomRue : string
+	codePostal : string[5]
+}
+
+
+Transport "0..*" - - "1..*" Gare : desservir >
+
+Hotel "0..*" - - "1..*" Gare : est proche de >
+
+
+Voyageur <|- - VoyageurRegulier
+
+VoyageurRegulier "0..*" - - "1" StatutCarte : a comme statut >
+
+
+Train "1..*" - - "1" TypeTrain : est de type >
+
+
+Ligne "1..*" - - "2..*" Gare
+(Ligne, Gare) .. LigneDessert
+
+TypeTrain "1" - - "1..*" Ligne : peut circuler >
+
+
+Voyage "0..*" - - "2..*" Gare
+(Voyage, Gare) .. VoyageDessert
+
+Voyage "1..*" - - "1" Ligne : est programmé sur >
+
+Plannification "0..*" - - "0..*" Voyage : plannifier >
+
+JourException "0..*" - "0..*" Plannification : impacter >
+
+Voyage "0..*" - - "1" Train : assuré par >
+
+Trajet "0..*" - - "1" Voyage : appartenir >
+
+
+Billet *- - Trajet
+
+Voyageur "1" - - "1..*" Billet : reserver >
+
+Billet "0..*" - - "1" TypePaiement : payer >
+
+
+
+note "La zone horaire est sous format GMT" as N1
+Gare .. N1
+
+note "Sur une ligne ne peut circuler qu'un certain type de train" as N2
+Ligne .. N2
+
+note "{(nom, ville) key}" as N3
+Gare .. N3
+
+note "{heureArrivee < heureDepart}" as N4
+VoyageDessert .. N4
+
+note "Pour un voyage donné, on ne peut pas avoir deux trajets à la même place aux mêmes arrêts" as N5
+Trajet .. N5
+
+note "{dateDepart, dateFin) key}" as N6
+Plannification . N6
+
+
+hide class circle
+
+@enduml
+
+PlantUML version 1.2022.5(Sat Apr 30 12:55:52 CEST 2022)
+(LGPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: fr
+Country: FR
+--></g></svg>

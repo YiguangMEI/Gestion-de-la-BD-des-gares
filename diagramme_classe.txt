@@ -1,0 +1,182 @@
+@startuml
+
+' Classes
+
+class TypeTrain {
+	nom : string {key}
+	nbPlace : integer {>= 0}
+	vitesseMax : Integer {>= 0}
+	aPremiereClasse : bool
+	coutHeure : float {>=0}
+}
+
+class Train {
+	numero : integer {key}
+}
+
+
+class Voyageur {
+	nom : string
+	prenom : string
+	adresse : Adresse
+	tel : string {key}
+}
+
+class VoyageurRegulier {
+	numeroCarte : integer {key}
+}
+
+class StatutCarte {
+	intitulé : string {key}
+}
+
+
+class Transport {
+	type : TypeTransport
+	ville : string
+}
+
+class Hotel {
+	nom : string
+	adresse : Adresse
+	ville : string
+}
+
+
+class Gare {
+	nom : string
+	ville : string
+	adresse : Adresse
+	zonehoraire : string
+}
+
+class Ligne
+
+class LigneDessert {
+	ordre : integer {>= 0}
+}
+
+class Voyage {
+	heureDepart : Time
+}
+
+class Plannification {
+	dateDepart : Date
+	dateFin : Date
+	lundi : bool
+	mardi : bool
+	mercredi : bool
+	jeudi : bool
+	vendredi : bool
+	samedi : bool
+	vendredi : bool
+}
+
+class JourException {
+	jour : Date {key}
+	ajout : bool
+}
+
+class VoyageDessert {
+	heureDepart : Time
+	heureArrivee : Time
+}
+
+class Trajet {
+	numeroTrajet : integer {local key}
+	numeroPlace : integer {>= 0}
+	prix : float {>= 0}
+}
+
+
+class Billet {
+	assurance : bool
+}
+
+class TypePaiement {
+	intitulé : string {key}
+}
+
+
+' Enumerations
+
+class TypeTransport <<enumeration>> {
+	Bus
+	Taxi
+}
+
+' DataTypes
+
+class Adresse <<dataType>> {
+	numeroVoie : Integer
+	nomRue : string
+	codePostal : string[5]
+}
+
+' Associations
+
+Transport "0..*" -- "1..*" Gare : desservir >
+
+Hotel "0..*" -- "1..*" Gare : est proche de >
+
+
+Voyageur <|-- VoyageurRegulier
+
+VoyageurRegulier "0..*" -- "1" StatutCarte : a comme statut >
+
+
+Train "1..*" -- "1" TypeTrain : est de type >
+
+
+Ligne "1..*" -- "2..*" Gare
+(Ligne, Gare) .. LigneDessert
+
+TypeTrain "1" -- "1..*" Ligne : peut circuler >
+
+
+Voyage "0..*" -- "2..*" Gare
+(Voyage, Gare) .. VoyageDessert
+
+Voyage "1..*" -- "1" Ligne : est programmé sur >
+
+Plannification "0..*" -- "0..*" Voyage : plannifier >
+
+JourException "0..*" - "0..*" Plannification : impacter >
+
+Voyage "0..*" -- "1" Train : assuré par >
+
+Trajet "0..*" -- "1" Voyage : appartenir >
+
+
+Billet *-- Trajet
+
+Voyageur "1" -- "1..*" Billet : reserver >
+
+Billet "0..*" -- "1" TypePaiement : payer >
+
+
+' Notes
+
+note "La zone horaire est sous format GMT" as N1
+Gare .. N1
+
+note "Sur une ligne ne peut circuler qu'un certain type de train" as N2
+Ligne .. N2
+
+note "{(nom, ville) key}" as N3
+Gare .. N3
+
+note "{heureArrivee < heureDepart}" as N4
+VoyageDessert .. N4
+
+note "Pour un voyage donné, on ne peut pas avoir deux trajets à la même place aux mêmes arrêts" as N5
+Trajet .. N5
+
+note "{(dateDepart, dateFin) key}" as N6
+Plannification . N6
+
+' Config
+
+hide class circle
+
+@enduml
