@@ -7,7 +7,7 @@ class TypeTrain {
 	nbPlace : integer {>= 0}
 	vitesseMax : Integer {>= 0}
 	aPremiereClasse : bool
-	coutHeure : float {>=0}
+	coutHeure : float {>0}
 }
 
 class Train {
@@ -50,7 +50,9 @@ class Gare {
 	zonehoraire : string
 }
 
-class Ligne
+class Ligne {
+	numero : integer {key}
+}
 
 class LigneDessert {
 	ordre : integer {>= 0}
@@ -69,7 +71,7 @@ class Plannification {
 	jeudi : bool
 	vendredi : bool
 	samedi : bool
-	vendredi : bool
+	dimanche : bool
 }
 
 class JourException {
@@ -83,9 +85,9 @@ class VoyageDessert {
 }
 
 class Trajet {
-	numeroTrajet : integer {local key}
+	numeroTrajet : integer {local key, >=0}
 	numeroPlace : integer {>= 0}
-	prix : float {>= 0}
+	prix() : float
 }
 
 
@@ -148,7 +150,7 @@ Voyage "0..*" -- "1" Train : assuré par >
 Trajet "0..*" -- "1" Voyage : appartenir >
 
 
-Billet *-- Trajet
+Billet *-- "1..*" Trajet
 
 Voyageur "1" -- "1..*" Billet : reserver >
 
@@ -174,6 +176,15 @@ Trajet .. N5
 
 note "{(dateDepart, dateFin) key}" as N6
 Plannification . N6
+
+note "{(nom, ville) key}" as N8
+Hotel . N8
+
+note "{dateDepart < dateFin}" as N9
+Plannification .. N9
+
+' note "Sur une même ligne, on ne peut pas avoir deux gares desservies dans le même ordre" as N7
+' LigneDessert .. N7
 
 ' Config
 
