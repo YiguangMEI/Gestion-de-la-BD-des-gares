@@ -47,7 +47,7 @@ class Gare {
 	nom : string
 	ville : string
 	adresse : Adresse
-	zonehoraire : string
+	zonehoraire : smallint {∈ ⟦-12; 12⟧}
 }
 
 class Ligne {
@@ -63,7 +63,7 @@ class Voyage {
 }
 
 class Plannification {
-	dateDepart : Date
+	dateDebut : Date
 	dateFin : Date
 	lundi : bool
 	mardi : bool
@@ -119,38 +119,38 @@ class Adresse <<dataType>> {
 
 Transport "0..*" -- "1..*" Gare : desservir >
 
-Hotel "0..*" -- "1..*" Gare : est proche de >
+Hotel "0..*" - "1..*" Gare : est proche de >
 
 
-Voyageur <|-- VoyageurRegulier
+Voyageur <|- VoyageurRegulier
 
-VoyageurRegulier "0..*" -- "1" StatutCarte : a comme statut >
+VoyageurRegulier "0..*" - "1" StatutCarte : a comme statut >
 
 
-Train "1..*" -- "1" TypeTrain : est de type >
+Train "1..*" - "1" TypeTrain : est de type >
 
 
 Ligne "1..*" -- "2..*" Gare
-(Ligne, Gare) .. LigneDessert
+(Ligne, Gare) . LigneDessert
 
 TypeTrain "1" -- "1..*" Ligne : peut circuler >
 
 
 Voyage "0..*" -- "2..*" Gare
-(Voyage, Gare) .. VoyageDessert
+(Voyage, Gare) . VoyageDessert
 
-Voyage "1..*" -- "1" Ligne : est programmé sur >
+Voyage "1..*" - "1" Ligne : est programmé sur >
 
-Plannification "0..*" -- "0..*" Voyage : plannifier >
+Plannification "0..*" - "0..*" Voyage : plannifier >
 
 JourException "0..*" - "0..*" Plannification : impacter >
 
-Voyage "0..*" -- "1" Train : assuré par >
+Voyage "0..*" - "1" Train : assuré par >
 
-Trajet "0..*" -- "1" Voyage : appartenir >
+Trajet "0..*" - "1" Voyage : appartenir >
 
 
-Billet *-- "1..*" Trajet
+Billet *- "1..*" Trajet
 
 Voyageur "1" -- "1..*" Billet : reserver >
 
@@ -158,9 +158,6 @@ Billet "0..*" -- "1" TypePaiement : payer >
 
 
 ' Notes
-
-note "La zone horaire est sous format GMT" as N1
-Gare .. N1
 
 note "Sur une ligne ne peut circuler qu'un certain type de train" as N2
 Ligne .. N2
@@ -173,9 +170,6 @@ VoyageDessert .. N4
 
 note "Pour un voyage donné, on ne peut pas avoir deux trajets à la même place aux mêmes arrêts" as N5
 Trajet .. N5
-
-note "{(dateDepart, dateFin) key}" as N6
-Plannification . N6
 
 note "{(nom, ville) key}" as N8
 Hotel . N8
