@@ -10,10 +10,10 @@ _Par défault, tous les attributs sont NOT NULL, sauf ceux explicitement désign
 
 avec zoneHorraire>=-12 AND zoneHorraire>=12 
 
-    Hotel(#id_Hotel: INT ,nom: STRING, numeroVoie : SMALLINT, nomRue : STRING, codePostal : STRING[5], ville:STRING)
+    Hotel(#nom: STRING, numeroVoie : SMALLINT, nomRue : STRING, codePostal : STRING[5], #ville:STRING)
 _
 
-    Transport(#id_Transpot: INT, type: TypeTransport, ville: STRING
+    Transport(#id_Transpot: INT, type: TypeTransport, ville: STRING)
 _
 
     TypeTrain(#nom: STRING, nbPlace: SMALLINT, vitesseMax: INT, aPremiereClasse: BOOLEAN, coutHeure: FLOAT)
@@ -35,6 +35,8 @@ avec numero>=0
 _
 
     Voyage(#id_Voyage : INTEGER, heureDepart:TIME, train=>Train(numero), ligne=>ligne(numero))
+
+avec (train, heureDepart) UNIQUE
 _
 
     Plannification(#idPlanification : INT, dateDepart: DATE, dateFin: DATE, lundi: BOOLEAN, mardi: BOOLEAN, mercredi: BOOLEAN, jeudi: BOOLEAN, vendredi: BOOLEAN, samedi: BOOLEAN, dimanche: BOOLEAN)
@@ -90,11 +92,11 @@ _
 
 _
 
-    Impacte(#planification=>Planification.idPlanification, #jour=>JourException)
+    Impacte(#planification=>Planification(idPlanification), #jour=>JourException)
 
 _ 
 
-    Planifie(#voyage=>Voyage,#dateDepart=>Plannification.dateDepart,#dateFin=>Plannification.dateFin)
+    Planifie(#voyage=>Voyage,#dateDepart=>Plannification(dateDepart),#dateFin=>Plannification(dateFin))
 
 
 ### Vues : 
@@ -151,7 +153,7 @@ _
 
     - projection(Gare, nom, ville) = projection(LigneDessert, nomGare, villeGare)
 
-    -projection(Ligne, numero)= projection(LigneDessert, ligne)
+    - projection(Ligne, numero)= projection(LigneDessert, ligne)
 
 
 
@@ -175,16 +177,16 @@ A la lumière de ces informations,  la méthode la plus satisfaisante pour un pa
 
 ## Justification des clefs :
 
-    Hôtel :
+    Hôtel : On considère qu'il n'y a pas deux hôtels d'une même ville ayant le même nom, c'est donc NOT NULL et UNIQUE.
 
 
     Ligne : il nous a semble cohérent que chaque ligne ait numéro unique et NOT NULL, ce n'est pas simplement une clef artificielle, car elle a aussi un rôle pour les usagers du site qui peuvent se référer au numéro de ligne.
 
 
-    Transport : 
+    Transport : Vu qu'il n'y a pas de clef naturelle, on a dut créer une clef artificielle
 
 
-    Voyage :
+    Voyage : Bien que heuredeDepart, train soient un couple UNIQUE, on ne souhaite pas qu'ils soient immuables, on pourra ainsi changer l'heure ou le train pour le même voyage. Il faut en conséquence créer une clef artificielle pour identifier un voyage
 
 
     Voyageur : un numéro de téléphone est certes unique et non nulle, il n'est cependant pas immuable pour un même voyageur, la clef artificielle semble se dessiner comme la meilleur option
