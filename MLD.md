@@ -11,8 +11,7 @@ _Par défault, tous les attributs sont NOT NULL, sauf ceux explicitement désign
 avec zoneHorraire>=-12 AND zoneHorraire>=12 
 
     Hotel(#id_Hotel: INT ,nom: STRING, numeroVoie : SMALLINT, nomRue : STRING, codePostal : STRING[5], ville:STRING)
--
-
+---
     Transport(#id_Transpot: INT, type: TypeTransport, ville: STRING
 -
 
