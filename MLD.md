@@ -78,7 +78,7 @@ pour les association N:M, il nous faut créer de nouvelles tables
 
 _
 
-    estProche(#hotel=>Hotel, #nom_gare=>Gare(nom), #ville_gare=>Gare(ville))
+    estProche(#nom_hotel=>Hotel(nom), #ville_hotel=>Hotel(ville), #nom_gare=>Gare(nom), #ville_gare=>Gare(ville))
 
 _ 
 
@@ -132,16 +132,12 @@ _
 
     {Contrainte N:N Gare-Hotel}
 
-    - projection(Hotel, id_hotel) = projection(AssocGareHotel, hotel)
-
-    - projection(Gare, nom, ville) = projection(est_proche, nom_gare, ville_gare)
+    - projection(Hotel, nom, ville) = projection(estProche, nom_hotel, ville_hotel)
 
 
     {Contrainte N:N Gare-Transport}
 
     - projection(Transport, id_transport) = projection(TransportDessert, transport)
-
-    - projection(Gare, nom, ville) = projection(TransportDessert, nom_gare, ville_gare)
 
 
     {Contrainte 1:N Billet-Trajet}
@@ -153,7 +149,6 @@ _
 
     - projection(Gare, nom, ville) = projection(LigneDessert, nomGare, villeGare)
 
-    - projection(Ligne, numero)= projection(LigneDessert, ligne)
 
 
 
@@ -168,11 +163,11 @@ _
 
 
 ## Justification de l'héritage
-1. La classe mère n'est pas abstrait, il sera ainsi nécessaire d'instancier des voyageurs qui ne sont pas réguliers(dits occasionnels)
+1. La classe mère n'est pas abstraite, il sera ainsi nécessaire d'instancier des voyageurs qui ne sont pas réguliers (dits occasionnels)
 2. L'héritage est presque complet, la classe fille ne posède que deux attributs supplémentaires
 3. La classe mère a des associations générales, la classe fille n'a pas d'association particulère
 
-A la lumière de ces informations,  la méthode la plus satisfaisante pour un passage au MLD semble être un héritage par la classe mère. 
+A la lumière de ces informations, la méthode la plus satisfaisante pour un passage au MLD semble être un héritage par la classe mère. 
 
 
 ## Justification des clefs :
