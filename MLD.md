@@ -2,19 +2,19 @@
 
 
 
-Par défault, tous les attributs sont NOT NULL, sauf ceux explicitement désignés par NULLABLE
+_Par défault, tous les attributs sont NOT NULL, sauf ceux explicitement désignés par NULLABLE_
 
-Tables :
+## Tables :
 
     Gare(#nom : STRING, #ville STRING, numeroVoie : SMALLINT, nomRue : STRING, codePostal : STRING[5], zoneHorraire : SMALLINT) 
 
 avec zoneHorraire>=-12 AND zoneHorraire>=12 
 
     Hotel(#id_Hotel: INT ,nom: STRING, numeroVoie : SMALLINT, nomRue : STRING, codePostal : STRING[5], ville:STRING)
+-
 
-
-    Transport(#id_Transpot: INT, type: TypeTransport, ville: STRING)
-
+    Transport(#id_Transpot: INT, type: TypeTransport, ville: STRING
+-
 
     TypeTrain(#nom: STRING, nbPlace: SMALLINT, vitesseMax: INT, aPremiereClasse: BOOLEAN, coutHeure: FLOAT)
 
@@ -29,18 +29,16 @@ avec numero>=0
 avec numero>=0
 
     Voyage(#id_Voyage : INTEGER, heureDepart:TIME, train=>Train(numero), ligne=>ligne(numero))
-
+-
 
     Plannification(#idPlanification : INT, dateDepart: DATE, dateFin: DATE, lundi: BOOLEAN, mardi: BOOLEAN, mercredi: BOOLEAN, jeudi: BOOLEAN, vendredi: BOOLEAN, samedi: BOOLEAN, dimanche: BOOLEAN)
 
 avec dateDepart < dateFin AND (lundi OR mardi OR mercredi OR jeudi OR vendredi OR samedi OR dimanche)
 
     JourException(#jour: DATE, ajout: BOOLEAN)
-
-
+-
     StatutCarte(#intitulé : string)
-
-
+_
     Voyageur(#idVoyageur : INTEGER, nom : STRING, prenom : STRING, numeroVoie : SMALLINT, nomRue : STRING, codePostal : STRING[5], tel : string, numeroCarte: INT, statut =>StatutCarte(intitulé))
 
 avec tel UNIQUE, numeroCarte NULLABLE UNIQUE, statut NULLABLE, ((numeroCarte IS NULL AND statut IS NULL) OR (numeroCarte IS NOT NULL AND statut IS NOT NULL))
@@ -55,15 +53,14 @@ avec tel UNIQUE, numeroCarte NULLABLE UNIQUE, statut NULLABLE, ((numeroCarte IS 
 
 avec numeroPlace>=0 AND numeroTrajet>=0
 
-Tables associations : 
+### Tables associations : 
+
 pour les association N:M, il nous faut créer de nouvelles tables 
 
     Transportdessert(#transport=>Transport, #nom_gare=>Gare.nom, #ville_gare=>Gare=>ville)
-
-
+-
     estProche(#hotel=>Hotel, #nom_gare=>Gare(nom), #ville_gare=>Gare(ville))
-
-
+-
     LigneDessert(#nomGare=>Gare(nom), #villeGare=>Gare(ville), #ligne=>Ligne, ordre:INTEGER)
 
 avec ordre>=0 et UNIQUE (ligne, ordre)
