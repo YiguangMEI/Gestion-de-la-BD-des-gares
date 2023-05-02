@@ -25,11 +25,13 @@ _
     Ligne(#numero : INT, type=>TypeTrain(nom))
 
 avec numero>=0
+
 _
 
     Train(#numero: INT, type=>TypeTrain(nom))
 
 avec numero>=0
+
 _
 
     Voyage(#id_Voyage : INTEGER, heureDepart:TIME, train=>Train(numero), ligne=>ligne(numero))
@@ -38,6 +40,7 @@ _
     Plannification(#idPlanification : INT, dateDepart: DATE, dateFin: DATE, lundi: BOOLEAN, mardi: BOOLEAN, mercredi: BOOLEAN, jeudi: BOOLEAN, vendredi: BOOLEAN, samedi: BOOLEAN, dimanche: BOOLEAN)
 
 avec dateDepart < dateFin AND (lundi OR mardi OR mercredi OR jeudi OR vendredi OR samedi OR dimanche)
+
 _
 
     JourException(#jour: DATE, ajout: BOOLEAN)
@@ -50,6 +53,8 @@ _
     Voyageur(#idVoyageur : INTEGER, nom : STRING, prenom : STRING, numeroVoie : SMALLINT, nomRue : STRING, codePostal : STRING[5], tel : string, numeroCarte: INT, statut =>StatutCarte(intitulé))
 
 avec tel UNIQUE, numeroCarte NULLABLE UNIQUE, statut NULLABLE, ((numeroCarte IS NULL AND statut IS NULL) OR (numeroCarte IS NOT NULL AND statut IS NOT NULL))
+
+_
 
     TypePaiment(#intitulé : STRING)
 
@@ -68,18 +73,26 @@ avec numeroPlace>=0 AND numeroTrajet>=0
 pour les association N:M, il nous faut créer de nouvelles tables 
 
     Transportdessert(#transport=>Transport, #nom_gare=>Gare.nom, #ville_gare=>Gare=>ville)
--
+
+_
+
     estProche(#hotel=>Hotel, #nom_gare=>Gare(nom), #ville_gare=>Gare(ville))
--
+
+_ 
+
     LigneDessert(#nomGare=>Gare(nom), #villeGare=>Gare(ville), #ligne=>Ligne, ordre:INTEGER)
 
 avec ordre>=0 et UNIQUE (ligne, ordre)
 
+_
+
     VoyageDessert(#voyage=>Voyage,#nomGare=>Gare(nom), #villeGare=>Gare(ville), ,heureDepart:TIME,heureArrivee:TIME)
 
+_
 
     Impacte(#planification=>Planification.idPlanification, #jour=>JourException)
 
+_ 
 
     Planifie(#voyage=>Voyage,#dateDepart=>Plannification.dateDepart,#dateFin=>Plannification.dateFin)
 
@@ -88,10 +101,12 @@ Vues :
 
     VvoyageurRégylier=Projection(Restriction(Voyageur, statut IS NOT NULL) idVoyageur, nom, prenom, numeroVoie, nomRue, codePostal, tel, numeroCarte, statut)
 
+_
+
     VvoyageurOccasionnel=Projection(Restriction(Voyageur, statut IS NOT NULL) idVoyageur, nom, prenom, numeroVoie, nomRue, codePostal, tel)
 
 
-Contraintes supplémentaires : 
+## Contraintes supplémentaires : 
 
     {Contrainte 1:N Voyageur-Billet}
 
@@ -141,7 +156,7 @@ Contraintes supplémentaires :
 
 
 
-    Contraintes plus complexes :
+### Contraintes plus complexes :
 
 
     - un voyage doit être lié à au moins 2 gares (peut être représenté par 2 clés étrangères dans voyage)
@@ -150,7 +165,7 @@ Contraintes supplémentaires :
 
 
 
-Justification de l'héritage
+## Justification de l'héritage
 1. La classe mère n'est pas abstrait, il sera ainsi nécessaire d'instancier des voyageurs qui ne sont pas réguliers(dits occasionnels)
 2. L'héritage est presque complet, la classe fille ne posède que deux attributs supplémentaires
 3. La classe mère a des associations générales, la classe fille n'a pas d'association particulère
@@ -158,7 +173,7 @@ Justification de l'héritage
 A la lumière de ces informations,  la méthode la plus satisfaisante pour un passage au MLD semble être un héritage par la classe mère. 
 
 
-Justification des clefs :
+## Justification des clefs :
 
     Hôtel :
 
