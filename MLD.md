@@ -97,7 +97,7 @@ _
     Planifie(#voyage=>Voyage,#dateDepart=>Plannification.dateDepart,#dateFin=>Plannification.dateFin)
 
 
-Vues : 
+### Vues : 
 
     VvoyageurRégylier=Projection(Restriction(Voyageur, statut IS NOT NULL) idVoyageur, nom, prenom, numeroVoie, nomRue, codePostal, tel, numeroCarte, statut)
 
