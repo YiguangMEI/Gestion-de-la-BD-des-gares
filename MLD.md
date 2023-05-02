@@ -19,6 +19,7 @@ _
     TypeTrain(#nom: STRING, nbPlace: SMALLINT, vitesseMax: INT, aPremiereClasse: BOOLEAN, coutHeure: FLOAT)
 
 avec nbPlace>=0 AND vitesseMax>=0 AND coutHeure>0
+
 _
 
     Ligne(#numero : INT, type=>TypeTrain(nom))
