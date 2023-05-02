@@ -19,14 +19,17 @@ _
     TypeTrain(#nom: STRING, nbPlace: SMALLINT, vitesseMax: INT, aPremiereClasse: BOOLEAN, coutHeure: FLOAT)
 
 avec nbPlace>=0 AND vitesseMax>=0 AND coutHeure>0
+_
 
     Ligne(#numero : INT, type=>TypeTrain(nom))
 
 avec numero>=0
+_
 
     Train(#numero: INT, type=>TypeTrain(nom))
 
 avec numero>=0
+_
 
     Voyage(#id_Voyage : INTEGER, heureDepart:TIME, train=>Train(numero), ligne=>ligne(numero))
 _
@@ -34,20 +37,26 @@ _
     Plannification(#idPlanification : INT, dateDepart: DATE, dateFin: DATE, lundi: BOOLEAN, mardi: BOOLEAN, mercredi: BOOLEAN, jeudi: BOOLEAN, vendredi: BOOLEAN, samedi: BOOLEAN, dimanche: BOOLEAN)
 
 avec dateDepart < dateFin AND (lundi OR mardi OR mercredi OR jeudi OR vendredi OR samedi OR dimanche)
+_
 
     JourException(#jour: DATE, ajout: BOOLEAN)
--
+
+_
+
     StatutCarte(#intitulé : string)
 _
+
     Voyageur(#idVoyageur : INTEGER, nom : STRING, prenom : STRING, numeroVoie : SMALLINT, nomRue : STRING, codePostal : STRING[5], tel : string, numeroCarte: INT, statut =>StatutCarte(intitulé))
 
 avec tel UNIQUE, numeroCarte NULLABLE UNIQUE, statut NULLABLE, ((numeroCarte IS NULL AND statut IS NULL) OR (numeroCarte IS NOT NULL AND statut IS NOT NULL))
 
     TypePaiment(#intitulé : STRING)
 
+_
 
     Billet(#idBillet : INTEGER, assurance : BOOL, acheteur=> Voyageur(idVoyageur), typePaiement=> TypePaiment(intitulé)) 
 
+_
 
     Trajet(#billet=>Billet, #numeroTrajet: INTEGER, numeroPlace: SMALLINT, prix: FLOAT)
 
