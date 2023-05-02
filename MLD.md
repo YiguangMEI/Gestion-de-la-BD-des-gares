@@ -11,10 +11,9 @@ _Par défault, tous les attributs sont NOT NULL, sauf ceux explicitement désign
 avec zoneHorraire>=-12 AND zoneHorraire>=12 
 
     Hotel(#id_Hotel: INT ,nom: STRING, numeroVoie : SMALLINT, nomRue : STRING, codePostal : STRING[5], ville:STRING)
----
+_
     Transport(#id_Transpot: INT, type: TypeTransport, ville: STRING
--
-
+_
     TypeTrain(#nom: STRING, nbPlace: SMALLINT, vitesseMax: INT, aPremiereClasse: BOOLEAN, coutHeure: FLOAT)
 
 avec nbPlace>=0 AND vitesseMax>=0 AND coutHeure>0
@@ -28,8 +27,7 @@ avec numero>=0
 avec numero>=0
 
     Voyage(#id_Voyage : INTEGER, heureDepart:TIME, train=>Train(numero), ligne=>ligne(numero))
--
-
+_
     Plannification(#idPlanification : INT, dateDepart: DATE, dateFin: DATE, lundi: BOOLEAN, mardi: BOOLEAN, mercredi: BOOLEAN, jeudi: BOOLEAN, vendredi: BOOLEAN, samedi: BOOLEAN, dimanche: BOOLEAN)
 
 avec dateDepart < dateFin AND (lundi OR mardi OR mercredi OR jeudi OR vendredi OR samedi OR dimanche)
