@@ -142,3 +142,12 @@ select nomgare, villegare, count(*) as "frequentation"
 from VoyageDessert vd
 group by nomgare, villegare
 order by count(*) desc;
+
+
+-- Les lignes les plus empruntées dans l'odre décroissant
+
+select ligne, count(*) as "nb empruntees"
+from voyage
+group by ligne
+order by count(*) desc;
+
