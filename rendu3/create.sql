@@ -10,6 +10,8 @@ drop view if exists VPrixBillet CASCADE;
 
 drop view if exists VvoyageurOccasionnel CASCADE;
 
+drop view if exists vNbPersParTrain CASCADE;
+
 drop table if exists LigneDessert CASCADE;
 
 drop table if exists VoyageDessert CASCADE;
@@ -252,19 +254,25 @@ Creer les vues
 
 ------------ */
 
--- Vue VvoyageurRégulier
+
+-- Vue des voyageurs réguliers
+
 CREATE VIEW VvoyageurRegulier AS 
 SELECT idVoyageur, nom, prenom, numeroVoie, nomRue, codePostal, tel, numeroCarte, statut 
 FROM Voyageur 
 WHERE statut IS NOT NULL;
 
--- Vue VvoyageurOccasionnel
+
+-- Vue des voyageurs occasionnels
+
 CREATE VIEW VvoyageurOccasionnel AS 
 SELECT idVoyageur, nom, prenom, numeroVoie, nomRue, codePostal, tel 
 FROM Voyageur 
 WHERE statut IS NULL;
 
+
 -- Vue PrixBillet
+
 CREATE VIEW VPrixBillet AS 
 SELECT idBillet, (SELECT SUM(prix) as prixBillet 
   FROM trajet 
@@ -272,3 +280,12 @@ SELECT idBillet, (SELECT SUM(prix) as prixBillet
 ) 
 from billet;
 
+
+-- Vue du nombre de personnes par train
+
+create view vNbPersParTrain (train, nbPersonnes) as
+select t.numero, count(*)
+from train t join typetrain tt on t.type = tt.nom
+    join voyage v on t.numero = v.train
+    join trajet tr on v.id_voyage = tr.voyage
+group by t.numero;

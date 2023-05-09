@@ -127,3 +127,10 @@ Where B.acheteur='1' ; --id de voyageur
 Select count(*)
 From HotelProcheDeGare H
 GROUP BY(H.nom_gare);
+
+
+-- Taux de remplissage des trains
+
+select train, (nbPersonnes::float / tt.nbPlace::float) as "Taux de remplissage"
+from vNbPersParTrain nbP join train t on nbP.train = t.numero
+    join TypeTrain tt on t.type = tt.nom;
