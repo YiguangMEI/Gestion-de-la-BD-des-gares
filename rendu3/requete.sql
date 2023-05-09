@@ -134,3 +134,11 @@ GROUP BY(H.nom_gare);
 select train, (nbPersonnes::float / tt.nbPlace::float) as "Taux de remplissage"
 from vNbPersParTrain nbP join train t on nbP.train = t.numero
     join TypeTrain tt on t.type = tt.nom;
+
+
+-- Les gares par niveau de fréquentation dans l'ordre décroissant
+
+select nomgare, villegare, count(*) as "frequentation"
+from VoyageDessert vd
+group by nomgare, villegare
+order by count(*) desc;
