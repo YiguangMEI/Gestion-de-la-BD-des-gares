@@ -85,13 +85,13 @@ INSERT INTO StatutCarte VALUES('Platine');
 
 -- Les voyageurs
 
-INSERT INTO Voyageur VALUES (0,'Seuret', 'Noam',10, 'boulevard victor', 13009, 0715151515,NULL, NULL);
-INSERT INTO Voyageur VALUES (1,'Carrillo', 'Gabri',11, 'boulevard victor', 13009, 0615151515,NULL, NULL);
-INSERT INTO Voyageur VALUES (2,'Deforge', 'Elliot',100, 'Rue de limasse', 60200,0711111111,  NULL, NULL);
-INSERT INTO Voyageur VALUES (3,'Brogi', 'eugenie',100, 'Rue de limasse', 60200, 0628187525,NULL, NULL);
-INSERT INTO Voyageur VALUES (4,'Leroy', 'Mathis',22, 'boulevard des niches', 75010, 0625063626,NULL, NULL);
-INSERT INTO Voyageur VALUES (5,'Brogi', 'alrick',138, 'Rue de strasse', 94001, 0607080900,11111, 'Platine');
-INSERT INTO Voyageur VALUES (6,'Leroy', 'Sané',22, 'boulevard des triches', 13010, 0625063625,11112,'Bronze');
+INSERT INTO Voyageur VALUES (0,'Seuret', 'Noam',10, 'boulevard victor', '13009', '0715151515',NULL, NULL);
+INSERT INTO Voyageur VALUES (1,'Carrillo', 'Gabri',11, 'boulevard victor', '13009', '0615151515',NULL, NULL);
+INSERT INTO Voyageur VALUES (2,'Deforge', 'Elliot',100, 'Rue de limasse', '60200','0711111111',  NULL, NULL);
+INSERT INTO Voyageur VALUES (3,'Brogi', 'eugenie',100, 'Rue de limasse', '60200', '0628187525',NULL, NULL);
+INSERT INTO Voyageur VALUES (4,'Leroy', 'Mathis',22, 'boulevard des niches', '75010', '0625063626',NULL, NULL);
+INSERT INTO Voyageur VALUES (5,'Brogi', 'alrick',138, 'Rue de strasse', '94001', '0607080900',11111, 'Platine');
+INSERT INTO Voyageur VALUES (6,'Leroy', 'Sané',22, 'boulevard des triches', '13010', '0625063625',11112,'Bronze');
 
 
 -- Les types de paiements
