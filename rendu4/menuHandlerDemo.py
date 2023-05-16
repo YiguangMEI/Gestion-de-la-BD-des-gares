@@ -37,12 +37,7 @@ if __name__ == "__main__":
 	menu1 = MenuHandler()
 
 	menu1.addMenuOption("Option 1", call_option1, 15, 60)
-
-	menu1Bis = MenuHandler(6)
-	menu1Bis.addMenuOption("Option 2", call_option2, 7)
-
-	menu1 += menu1Bis
-	
+	menu1.addMenuOption("Option 2", call_option2, 7)
 	menu1.addQuitOption("Quitter")
 
 	# Gestion manuelle des interactions utilisateur
