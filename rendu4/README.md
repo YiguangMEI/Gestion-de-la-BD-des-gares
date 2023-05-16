@@ -21,3 +21,8 @@ python3 main.py
 Le programme établira ainsi une connexion avec la base de données à l'UTC, permettant ainsi la bonne utilisation du programme.
 
 Ensuite, pour utiliser l'application, il suffit de rentrer au clavier la valeur qui correspond au menu afficher et de donner les informations que l'application demande.
+
+## Exemples
+
+Afin de reserver des trajets, il faut que l'utilisateur se connecter en donnant son numero de telephone. On pourrait imaginer dans une version plus avancée de l'application l'ajout de mot de passes.    
+Par exemple, un utilisateur a le numero de telephone suivant : `0715151515`.

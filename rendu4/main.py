@@ -6,15 +6,15 @@ from admin_menu import open_admin_menu
 from utilisateur_menu import open_user_menu, open_default_user_menu
 
 # A modifier pour votre propre configuration 
-# HOST = "tuxa.sme.utc"
-# USER = "nf18p090"
-# DB = "dbnf18p090"
-# PWD = "ZlEDjy6c0wV4"
+HOST = "tuxa.sme.utc"
+USER = "nf18p090"
+DB = "dbnf18p090"
+PWD = "ZlEDjy6c0wV4"
 
-HOST = "localhost"
-USER = "postgres"
-DB = "nf18_projet"
-PWD = ""
+# HOST = "localhost"
+# USER = "postgres"
+# DB = "nf18_projet"
+# PWD = ""
 
 if __name__ == "__main__":
 	conn = psql.connect("host=%s dbname=%s user=%s password=%s" % (HOST, DB, USER, PWD))
