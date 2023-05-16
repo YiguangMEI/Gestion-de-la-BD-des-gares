@@ -68,9 +68,9 @@ def connexion(conn):
 		else:
 			cur = conn.cursor()
 
-			req = "select idVoyageur, nom, prenom from Voyageur where tel=%s"
-			
-			cur.execute(req, (inUser[1:] if inUser[0] == '0' else inUser,))
+			req = "select idVoyageur, nom, prenom from Voyageur where tel='%s'" % inUser
+
+			cur.execute(req)
 
 			nb_lignes = cur.rowcount
 
