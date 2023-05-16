@@ -29,14 +29,14 @@ def inscription(conn):
 	numeroVoie = input("Quel est votre numéro de voie ? : ")
 	rue = (input("Quelle est votre nom de rue/boulevard/impasse  ? : "))
 	codePostal = (input("Quelle est le code postal ? : "))
-	tel=input("Rentrez votre numéro de telephone : ")
+	tel=input("Rentrez votre numéro de téléphone : ")
 
 	regulier="jsp"
 	while (regulier!="oui" and regulier!="non"):
 		regulier=input("Voulez vous avoir une carte de voyageur régulier ? (oui/non) \n")
 	
 	if regulier=="oui" :
-		print("vous démarerrez avec le statut Bronze ! \n")
+		print("vous démarrerez avec le statut Bronze ! \n")
 		request  = "INSERT INTO voyageur(idVoyageur,nom,prenom,numeroVoie,nomRue,codePostal,tel,numerocarte,statut) VALUES (%s, %s,%s,%s,%s,%s,%s, %s,%s)"
 		cur.execute(request, (str(max+1),nom,prenom,numeroVoie,rue,codePostal,tel,str(maxR+1),'Bronze'))
 		conn.commit()
@@ -54,10 +54,12 @@ def connexion(conn):
 
 	connecte = False
 
-	print("Veuillez vous connecter pour acceder a vos donnees.")
+	print("Veuillez vous connecter pour accéder a vos données.")
 
 	while not connecte:
-		print("Quel est votre numero de telephone ? (Ne rien mettre pour creer un nouvel utilisateur)")
+		print("Quel est votre numéro de téléphone ?")
+		print("Ne rien mettre pour créer un nouvel utilisateur.")
+		print("Mettre 0 pour revenir au menu principal.")
 		print("> ", end="")
 
 		inUser = input()
@@ -65,6 +67,8 @@ def connexion(conn):
 		if inUser == '':
 			inscription(conn)
 			connecte = True
+		if inUser == '0':
+			return
 		else:
 			cur = conn.cursor()
 
@@ -76,11 +80,11 @@ def connexion(conn):
 
 			if nb_lignes > 0:
 				user = cur.fetchone()
-				id_utilisateur = user[0]
+				id_utilisateur = int(user[0])
 				connecte = True
-				print(f"Connecte ! Bonjour {user[2]} {user[1]}")
+				print(f"\nConnecté ! Bonjour {user[2]} {user[1]}")
 			else:
-				print(f"Numero de telephone {inUser} inconnu; voulez-vous vous inscrire ? (0->non, 1->oui)")
+				print(f"Numéro de téléphone {inUser} inconnu; voulez-vous vous inscrire ? (0->non, 1->oui)")
 				
 				print("> ", end="")
 
@@ -92,18 +96,79 @@ def connexion(conn):
 				else:
 					print("Connexion")
 
+def deconnexion():
+	global id_utilisateur
+	id_utilisateur = None
+
 
 def consultation_billets(conn):
-	pass
+	global id_utilisateur
+
+	if id_utilisateur is not None:
+
+		cur = conn.cursor()
+
+		data = {}
+
+		req_dep = """
+			select idBillet, assurance, numeroTrajet, numeroPlace, t.heureDepart, t.date, t.prix, vd.villeGare, vd.nomGare
+			from billet 
+			join trajet t on billet.idBillet = t.billet
+			join voyageDessert vd on t.voyage = vd.voyage
+			where acheteur = %i and t.heureDepart = vd.heureDepart
+			order by idBillet, numeroTrajet
+		""" % id_utilisateur
+
+		cur.execute(req_dep)
+
+		nb_lignes = cur.rowcount
+
+		if nb_lignes == 0:
+			print("Vous n'avez réservé aucun billet.")
+			return
+
+		for cursor in cur:
+			if cursor[0] not in data:
+				data[cursor[0]] = {
+				"assure": cursor[1],
+				"sousTrajets" : [],
+				"prixTot" : 0.0,
+				"depart": [cursor[5], cursor[4], cursor[7], cursor[8]] # [date, heure, ville, gare]
+				}
+			data[cursor[0]]["prixTot"] += float(cursor[6])
+			data[cursor[0]]["sousTrajets"].append([cursor[3], cursor[5], cursor[4], cursor[7], cursor[8]]) # [nplace, dateDep, heureDep, villeDep, gareDep]
+
+
+		req_arr = """
+			select idBillet, numeroTrajet, t.date, t.heureArrivee, vd.villeGare, vd.nomGare
+			from billet 
+			join trajet t on billet.idBillet = t.billet
+			join voyageDessert vd on t.voyage = vd.voyage
+			where acheteur = %i and t.heureArrivee = vd.heureArrivee
+			order by idBillet, numeroTrajet desc
+		""" % id_utilisateur
+
+		cur.execute(req_arr)
+
+		nb_lignes = cur.rowcount
+
+		for cursor in cur:
+			if "arrivee" not in data[cursor[0]]:
+				data[cursor[0]]["arrivee"] = [cursor[2], cursor[3], cursor[4], cursor[5]] # [date, heure, ville, gare]
+			data[cursor[0]]["sousTrajets"][int(cursor[1])] += [cursor[2], cursor[3], cursor[4], cursor[5]] # [nplace, dateDep, heureDep, villeDep, gareDep]
+
+		from pprint import pprint
+		pprint(data)
+
 
 def gen_menu(conn, start_idx=0):
 	menu = MenuHandler(start_idx)
 
-	# menu.addMenuOption("Reserver", reservation_trajet, conn)
-	# menu.addMenuOption("Consulter les reservations", consultation_billets, conn)
-	# menu.addMenuOption("Modifier les reservations", modifier_reservation, conn)
-	# menu.addMenuOption("Annuler les reservations", annuler_reservation, conn)
-	menu.addQuitOption("Deconnexion")
+	# menu.addMenuOption("Réserver", reservation_trajet, conn)
+	menu.addMenuOption("Consulter les réservations", consultation_billets, conn)
+	# menu.addMenuOption("Modifier les réservations", modifier_reservation, conn)
+	# menu.addMenuOption("Annuler les réservations", annuler_reservation, conn)
+	menu.addQuitOption("Déconnexion")
 
 	return menu
 
@@ -112,8 +177,10 @@ def open_user_menu(conn, start_idx=0):
 
 	connexion(conn)
 
-	menu = gen_menu(conn, start_idx)
+	if id_utilisateur is not None:
 
-	menu.handle()
+		menu = gen_menu(conn, start_idx)
 
-	id_utilisateur = None
+		menu.handle()
+
+		deconnexion()

@@ -46,6 +46,7 @@ def recherche_trajet(conn):
 
 	active = True
 	while active:
+		print("Rentrez la valeur q pour quitter ce menu.")
 		for idx_champ, nom_champ in enumerate(nom_champs):
 			print(f"{idx_champ} - {nom_champ}[{'' if champs[idx_champ] is None else champs[idx_champ]}]")
 		if champs[0] is not None and champs[1] is not None:
@@ -53,8 +54,10 @@ def recherche_trajet(conn):
 
 		print("> ", end="")
 
+		choix = input()
+
 		try:
-			choix = int(input())
+			choix = int(choix)
 
 			if choix >= 0 and choix <= len(champs) :
 				if choix == len(champs) and (champs[0] is None or champs[1] is None):
@@ -70,7 +73,10 @@ def recherche_trajet(conn):
 				champs[choix] = input()
 
 		except ValueError:
-			print("Entree utilisateur n'est pas un nombre entier")
+			if choix == "q":
+				return
+			else:
+				print("Entree utilisateur n'est pas un nombre entier")
 
 	print("---------")
 

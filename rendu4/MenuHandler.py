@@ -32,6 +32,16 @@ class MenuHandler:
 			s += f"{option} - {self.menu[option][0]}\n"
 		return s
 
+	# Permet d'ajouter deux menus entre eux
+	# params:
+	#  menu2 : le menu a ajouter au menu courant
+	# returns : 
+	#  le menu courant avec les options du menu 'menu2' en plus
+	def __iadd__(self, menu2):
+		for opt in menu2.menu:
+			self.addMenuOption(menu2.menu[opt][0], menu2.menu[opt][1], *menu2.menu[opt][2])
+		return self
+
 	# Ajout d'une nouvelle option de menu
 	# params:
 	#  menu_name : le nom de l'option a afficher
