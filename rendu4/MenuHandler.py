@@ -1,5 +1,5 @@
 import sys
-
+import psycopg2 as psql
 
 class UnknownMenu(Exception):
 	def __init__(self, msg=""):
@@ -63,9 +63,29 @@ class MenuHandler:
 			raise QuitMenu()
 
 		if params:
-			return self.menu[menu_index][1](*params)
+			p = params
 		else:
-			return self.menu[menu_index][1](*self.menu[menu_index][2])
+			p = self.menu[menu_index][2]
+
+		try:
+			res = self.menu[menu_index][1](*p)
+			return res
+		except psql.DataError as e:
+			print(f"Err : {self.menu[menu_index][0]}")
+			print("Une des valeurs donnees n'a pas le type attendu !")
+			print(e)
+			for v in p:
+				if type(v) == psql.extensions.connection:
+					v.rollback()
+					break
+		except psql.IntegrityError as e:
+			print(f"Err : {self.menu[menu_index][0]}")
+			print(f"La donnee qui a tente d'etre inseree existe deja")
+			print(e)
+			for v in p:
+				if type(v) == psql.extensions.connection:
+					v.rollback()
+					break
 
 	# Gère les interactions entre l'utilisateur et le menu
 	def handle(self):

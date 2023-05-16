@@ -69,7 +69,7 @@ def connexion(conn):
 			cur = conn.cursor()
 
 			req = "select idVoyageur, nom, prenom from Voyageur where tel=%s"
-			print(req)
+			
 			cur.execute(req, (inUser[1:] if inUser[0] == '0' else inUser,))
 
 			nb_lignes = cur.rowcount
