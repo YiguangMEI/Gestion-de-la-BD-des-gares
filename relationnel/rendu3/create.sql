@@ -16,15 +16,15 @@ drop table if exists LigneDessert CASCADE;
 
 drop table if exists VoyageDessert CASCADE;
 
-drop table if exists HotelProcheDeGare CASCADE;
+-- drop table if exists HotelProcheDeGare CASCADE;
 
-drop table if exists TransportProcheDeGare CASCADE;
+-- drop table if exists TransportProcheDeGare CASCADE;
 
-drop table if exists ExceptionPlannification CASCADE;
+-- drop table if exists ExceptionPlannification CASCADE;
 
-drop table if exists VoyagePlannifie CASCADE;
+-- drop table if exists VoyagePlannifie CASCADE;
 
-drop table if exists Trajet CASCADE;
+-- drop table if exists Trajet CASCADE;
 
 drop table if exists Billet CASCADE;
 
@@ -34,9 +34,9 @@ drop table if exists Voyageur CASCADE;
 
 drop table if exists StatutCarte CASCADE;
 
-drop table if exists JourException CASCADE;
+-- drop table if exists JourException CASCADE;
 
-drop table if exists Plannification CASCADE;
+-- drop table if exists Plannification CASCADE;
 
 drop table if exists Voyage CASCADE;
 
@@ -46,63 +46,74 @@ drop table if exists Ligne CASCADE;
 
 drop table if exists TypeTrain CASCADE;
 
-drop table if exists Hotel CASCADE;
+-- drop table if exists Hotel CASCADE;
 
-drop table if exists Transport CASCADE ;
+-- drop table if exists Transport CASCADE ;
 
 drop table if exists Gare CASCADE;
 
-drop type if exists TypeTransport CASCADE;
+-- drop type if exists TypeTransport CASCADE;
 
 
 /* Creation des types */
 
-create type TypeTransport as enum ('Bus', 'Metro', 'Tramway', 'Taxi', 'VTC');
+-- create type TypeTransport as enum ('Bus', 'Metro', 'Tramway', 'Taxi', 'VTC');
 
 /* Creation des tables */
 
-CREATE TABLE Gare (
-  nom VARCHAR,
-  ville VARCHAR,
-  numeroVoie SMALLINT NOT NULL,
-  nomRue VARCHAR NOT NULL,
-  codePostal CHAR(5) NOT NULL,
-  zoneHorraire SMALLINT NOT NULL CHECK (zoneHorraire >= -12 AND zoneHorraire <= 12),
-  PRIMARY KEY (nom, ville)
-);
+/*
+  La gare va dorénavant contenir deux champs JSON : Un pour les hotels à proximité et 
+  un pour les transports qui deservent la gare
+*/
 
-CREATE TABLE Hotel (
-  id_Hotel INT,
-  nom VARCHAR NOT NULL,
-  numeroVoie SMALLINT NOT NULL,
-  nomRue VARCHAR NOT NULL,
-  codePostal CHAR(5) NOT NULL,
-  ville VARCHAR NOT NULL,
-  PRIMARY KEY (id_Hotel)
-);
+-- CREATE TABLE Gare (
+--   nom VARCHAR,
+--   ville VARCHAR,
+--   numeroVoie SMALLINT NOT NULL,
+--   nomRue VARCHAR NOT NULL,
+--   codePostal CHAR(5) NOT NULL,
+--   zoneHorraire SMALLINT NOT NULL CHECK (zoneHorraire >= -12 AND zoneHorraire <= 12),
+--   PRIMARY KEY (nom, ville)
+-- );
 
-CREATE TABLE HotelProcheDeGare (
-    hotel INT REFERENCES Hotel(id_Hotel),
-    nom_gare VARCHAR,
-    ville_gare VARCHAR,
-    FOREIGN KEY (nom_gare, ville_gare) REFERENCES Gare(nom, ville),
-    PRIMARY KEY(hotel, nom_gare, ville_gare)
-);
 
-CREATE TABLE Transport (
-  id_Transpot INT,
-  type TypeTransport NOT NULL,
-  ville VARCHAR NOT NULL,
-  PRIMARY KEY (id_Transpot)
-);
+/*
+  On a mis les tables Hotel et Transport en JSON car ce ne sont pas des informations 
+   que l'on considère comme nécéssitant une grande fiabilité.
+*/
 
-CREATE TABLE TransportProcheDeGare(
-    transport INT REFERENCES Transport(id_Transpot),
-    nom_gare VARCHAR,
-    ville_gare VARCHAR,
-    FOREIGN KEY (nom_gare, ville_gare) REFERENCES Gare(nom, ville),
-    PRIMARY KEY(nom_gare, ville_gare, transport)
-);
+-- CREATE TABLE Hotel (
+--   id_Hotel INT,
+--   nom VARCHAR NOT NULL,
+--   numeroVoie SMALLINT NOT NULL,
+--   nomRue VARCHAR NOT NULL,
+--   codePostal CHAR(5) NOT NULL,
+--   ville VARCHAR NOT NULL,
+--   PRIMARY KEY (id_Hotel)
+-- );
+
+-- CREATE TABLE HotelProcheDeGare (
+--     hotel INT REFERENCES Hotel(id_Hotel),
+--     nom_gare VARCHAR,
+--     ville_gare VARCHAR,
+--     FOREIGN KEY (nom_gare, ville_gare) REFERENCES Gare(nom, ville),
+--     PRIMARY KEY(hotel, nom_gare, ville_gare)
+-- );
+
+-- CREATE TABLE Transport (
+--   id_Transpot INT,
+--   type TypeTransport NOT NULL,
+--   ville VARCHAR NOT NULL,
+--   PRIMARY KEY (id_Transpot)
+-- );
+
+-- CREATE TABLE TransportProcheDeGare(
+--     transport INT REFERENCES Transport(id_Transpot),
+--     nom_gare VARCHAR,
+--     ville_gare VARCHAR,
+--     FOREIGN KEY (nom_gare, ville_gare) REFERENCES Gare(nom, ville),
+--     PRIMARY KEY(nom_gare, ville_gare, transport)
+-- );
 
 CREATE TABLE TypeTrain (
   nom VARCHAR,
