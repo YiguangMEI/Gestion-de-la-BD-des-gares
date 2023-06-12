@@ -8,6 +8,8 @@ drop view if exists VvoyageurRegulier CASCADE;
 
 drop view if exists VPrixBillet CASCADE;
 
+drop view if exists v_traj_voyage_heure_dep CASCADE;
+
 drop view if exists VvoyageurOccasionnel CASCADE;
 
 drop view if exists vNbPersParTrain CASCADE;
@@ -72,7 +74,7 @@ CREATE TABLE Gare (
 );
 
 /*
-  On a mis les tables Hotel et Transport en JSON car ce ne sont pas des informations 
+  On a mis les tables Hotel et Transport en JSON car ce ne sont pas des informations
    que l'on considère comme nécéssitant une grande fiabilité.
 */
 
@@ -170,7 +172,7 @@ CREATE TABLE VoyageDessert(
 /*
 Les tables de plannification sont devenus des champs JSON dans Voyage
 On s'est rendu compte que ces tables engendraient beaucoup de jointures dès
- lors que l'on cherche un trajet; on les a donc rassembler en une table pour 
+ lors que l'on cherche un trajet; on les a donc rassembler en une table pour
  réduire le nombre de ces jointures
 */
 
@@ -246,6 +248,8 @@ CREATE TABLE Billet (
   FOREIGN KEY (typePaiement) REFERENCES TypePaiment(intitule)
 );
 
+
+
 -- Trajet transformé en JSON car c'était notre seule composition
 
 -- CREATE TABLE Trajet (
@@ -255,8 +259,8 @@ CREATE TABLE Billet (
 --   voyage INT NOT NULL,
 --   prix DECIMAL(5,2) NOT NULL,
 --   heureDepart TIME NOT NULL,
---   heureArrivee TIME NOT NULL, 
---   date DATE NOT NULL, --A tester
+--   heureArrivee TIME NOT NULL,
+--   date DATE NOT NULL, --A tester1
 --   PRIMARY KEY (billet, numeroTrajet),
 --   CHECK (numeroPlace >= 0 AND numeroTrajet >= 0),
 --   FOREIGN KEY (billet) REFERENCES Billet(idBillet),
@@ -273,31 +277,33 @@ Creer les vues
 
 -- -- Vue des voyageurs réguliers
 
--- CREATE VIEW VvoyageurRegulier AS 
--- SELECT idVoyageur, nom, prenom, numeroVoie, nomRue, codePostal, tel, numeroCarte, statut 
--- FROM Voyageur 
--- WHERE statut IS NOT NULL;
+CREATE VIEW VvoyageurRegulier AS
+SELECT idVoyageur, nom, prenom, numeroVoie, nomRue, codePostal, tel, numeroCarte, statut
+FROM Voyageur
+WHERE statut IS NOT NULL;
 
 
 -- -- Vue des voyageurs occasionnels
 
--- CREATE VIEW VvoyageurOccasionnel AS 
--- SELECT idVoyageur, nom, prenom, numeroVoie, nomRue, codePostal, tel 
--- FROM Voyageur 
--- WHERE statut IS NULL;
+CREATE VIEW VvoyageurOccasionnel AS
+SELECT idVoyageur, nom, prenom, numeroVoie, nomRue, codePostal, tel
+FROM Voyageur
+WHERE statut IS NULL;
 
 
 -- -- Vue PrixBillet
 
--- CREATE VIEW VPrixBillet AS 
--- SELECT idBillet, (SELECT SUM(prix) as prixBillet 
---   FROM trajet 
+-- CREATE VIEW VPrixBillet AS
+-- SELECT idBillet, (SELECT SUM(prix) as prixBillet
+--   FROM trajet
 --   WHERE trajet.billet=idBillet
--- ) 
+-- )
 -- from billet;
-
+CREATE VIEW VPrixBillet (billet, prix) AS
+SELECT b.idBillet, SUM(CAST(t->>'prix' as FLOAT)) FROM billet b, JSON_ARRAY_ELEMENTS(b.trajet) t GROUP BY b.idBillet;
 
 -- -- Vue du nombre de personnes par train
+
 
 -- create view vNbPersParTrain (train, nbPersonnes) as
 -- select t.numero, count(*)
@@ -305,3 +311,17 @@ Creer les vues
 --     join voyage v on t.numero = v.train
 --     join trajet tr on v.id_voyage = tr.voyage
 -- group by t.numero;
+
+        -- Vue des trajets
+
+        CREATE VIEW v_traj_voyage_heure_dep (trajet, voyage, heureDepart) AS
+        SELECT t->>'numeroTrajet', CAST(t->>'voyage' AS INTEGER), t->>'heureDepart'
+        FROM billet b, JSON_ARRAY_ELEMENTS(b.trajet) t;
+
+CREATE view vNbPersParTrain (train, nbPersonnes) as
+SELECT t.numero, count(*)
+FROM train t JOIN voyage v
+ON t.numero = v.train
+JOIN v_traj_voyage_heure_dep vt
+ON vt.voyage=v.id_voyage
+GROUP BY t.numero;
