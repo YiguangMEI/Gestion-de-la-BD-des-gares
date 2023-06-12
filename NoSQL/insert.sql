@@ -5,13 +5,13 @@
 -- Les gares
 
 
-INSERT INTO Gare VALUES('Gare de Valence', 'Valence', '{"numeroVoie":3, "nomRue": "Avenue Victor Hugo", "codePostal": 26000}', 2, 
+INSERT INTO Gare VALUES('Gare de Valence', 'Valence', '{"numeroVoie":3, "nomRue": "Avenue Victor Hugo", "codePostal": 26000}', 2,
 
     '[{
 
-    "id_Hotel": 5,  
+    "id_Hotel": 5,
 
-    "nom": "Chez le marchand de sable",   
+    "nom": "Chez le marchand de sable",
 
      "ville": "Valence",
 
@@ -19,7 +19,7 @@ INSERT INTO Gare VALUES('Gare de Valence', 'Valence', '{"numeroVoie":3, "nomRue"
 
     "numeroVoie": 89,
 
-    "nomRue": "Rue des mysteres", 
+    "nomRue": "Rue des mysteres",
 
     "codePostal": 26000
 
@@ -37,7 +37,7 @@ INSERT INTO Gare VALUES('Lyon Part-Dieu', 'Lyon', '{"numeroVoie":6, "nomRue": "R
 
     "numeroVoie": 45,
 
-    "nomRue": "Chemin du verre", 
+    "nomRue": "Chemin du verre",
 
     "codePostal": 69000
 
@@ -49,7 +49,37 @@ INSERT INTO Gare VALUES('Lyon Part-Dieu', 'Lyon', '{"numeroVoie":6, "nomRue": "R
 
     "numeroVoie": 5,
 
-    "nomRue": "Avenue Francoise De Busy", 
+    "nomRue": "Avenue Francoise De Busy",
+
+    "codePostal": 69000
+
+    }
+
+    }]',
+
+    '[]'
+
+);
+
+INSERT INTO Gare VALUES('Lyon Perrache', 'Lyon', '{"numeroVoie":14, "nomRue": "Avenue de la Rose",  "codePostal": 69000}', 2,
+
+    ' [{"id_Hotel": 3,  "nom": "Le doux sommeil",   "ville": "Lyon","adresse":{
+
+    "numeroVoie": 45,
+
+    "nomRue": "Chemin du verre",
+
+    "codePostal": 69000
+
+    }
+
+    },
+
+    {"id_Hotel": 4,  "nom": "Au repos eternel", "ville": "Lyon", "adresse":{
+
+    "numeroVoie": 5,
+
+    "nomRue": "Avenue Francoise De Busy",
 
     "codePostal": 69000
 
@@ -61,13 +91,13 @@ INSERT INTO Gare VALUES('Lyon Part-Dieu', 'Lyon', '{"numeroVoie":6, "nomRue": "R
 
 );
 
-INSERT INTO Gare VALUES('Gare Pompidou', 'Compiegne', '{"numeroVoie":1, "nomRue": "Rue de la gare", "codePostal": 60000}', 2, 
+INSERT INTO Gare VALUES('Gare Pompidou', 'Compiegne', '{"numeroVoie":1, "nomRue": "Rue de la gare", "codePostal": 60000}', 2,
 
     '[{
 
-    "id_Hotel": 2,  
+    "id_Hotel": 2,
 
-    "nom": "Au grand dormeur",   
+    "nom": "Au grand dormeur",
 
      "ville": "Compiegne",
 
@@ -75,7 +105,7 @@ INSERT INTO Gare VALUES('Gare Pompidou', 'Compiegne', '{"numeroVoie":1, "nomRue"
 
     "numeroVoie": 10,
 
-    "nomRue": "Avenue Henry Kavill", 
+    "nomRue": "Avenue Henry Kavill",
 
     "codePostal": 60200
 
@@ -87,13 +117,13 @@ INSERT INTO Gare VALUES('Gare Pompidou', 'Compiegne', '{"numeroVoie":1, "nomRue"
 
 );
 
-INSERT INTO Gare VALUES('Gare du Nord', 'Paris', '{"numeroVoie":18, "nomRue": "Rue de Dunkerque", "codePostal":75010}', 2, 
+INSERT INTO Gare VALUES('Gare du Nord', 'Paris', '{"numeroVoie":18, "nomRue": "Rue de Dunkerque", "codePostal":75010}', 2,
 
     '[{
 
-    "id_Hotel": 7,  
+    "id_Hotel": 7,
 
-    "nom": "Hotel 5 etoiles",   
+    "nom": "Hotel 5 etoiles",
 
      "ville": "Paris",
 
@@ -101,7 +131,7 @@ INSERT INTO Gare VALUES('Gare du Nord', 'Paris', '{"numeroVoie":18, "nomRue": "R
 
     "numeroVoie": 6,
 
-    "nomRue": "Rue du mytho", 
+    "nomRue": "Rue du mytho",
 
     "codePostal": 75010
 
@@ -112,7 +142,57 @@ INSERT INTO Gare VALUES('Gare du Nord', 'Paris', '{"numeroVoie":18, "nomRue": "R
     '[{ "type":"BUS" }, { "type":"TAXI" }, { "type":"Metro" }, { "type":"Tramway" }, { "type":"VTC"}]'
 
 );
+INSERT INTO Gare VALUES('Gare Saint Charles', 'Marseille', '{"numeroVoie":138, "nomRue": "Rue des villes", "codePostal":13008}', 2,
 
+    '[{
+
+    "id_Hotel": 6,
+
+    "nom": "Chez Colin",
+
+     "ville": "Marseille",
+
+    "adresse":{
+
+    "numeroVoie": 55,
+
+    "nomRue": "Avenue de la Comptine",
+
+    "codePostal": 13008
+
+    }
+
+    }]',
+
+    '[{ "type":"BUS" }]'
+
+);
+
+INSERT INTO Gare VALUES('Gare Pere Noel', 'Nuuk', '{"numeroVoie":13, "nomRue": "Rue de la neige", "codePostal":13008}', -1,
+
+    '[{
+
+    "id_Hotel": 6,
+
+    "nom": "Chez Colin",
+
+     "ville": "Marseille",
+
+    "adresse":{
+
+    "numeroVoie": 55,
+
+    "nomRue": "Avenue de la Comptine",
+
+    "codePostal": 13008
+
+    }
+
+    }]',
+
+    '[{ "type":"VTC" }]'
+
+);
 -- Les types de trains
 
 INSERT INTO TypeTrain VALUES('TGV',250,430,TRUE,20.3);
@@ -158,24 +238,32 @@ INSERT INTO TypePaiment VALUES('Monnaie');
 
 -- Billet
 
-INSERT INTO Billet VALUES( 0, FALSE, 0, 'carte bancaire', '[   
-{"numeroTrajet" : 1, "numeroPlace" : 22, "prix": 12.5,"heureDepart": "7:00","heureArrivee":"8:00" ,"date" : "2023-06--08","voyage":3}, 
-{"numeroTrajet" : 2, "numeroPlace": 72, "prix": 12.5,"heureDepart": "8:00","heureArrivee":"9:00" ,"date" : "2023-06--08","voyage":3}
-     ]'  ); 
-     
-INSERT INTO Billet VALUES( 1, TRUE, 0, 'carte bancaire', '[   
-{"numeroTrajet" : 1, "numeroPlace": 55, "prix": 12.5,"heureDepart": "7:00","heureArrivee":"8:00" ,"date" : "2023-06--08","voyage":3},
-{"numeroTrajet" : 2, "numeroPlace": 44, "prix": 15,"heureDepart": "8:30","heureArrivee":"9:00" ,"date" : "2023-06--08","voyage":3},
-{"numeroTrajet" : 3, "numeroPlace": 57, "prix": 19,"heureDepart": "10:00","heureArrivee":"11:00" ,"date" : "2023-06--08","voyage":3}
-     ] ' ); 
-     
- INSERT INTO Billet VALUES( 2, TRUE, 0, 'carte bancaire', '[   
-{"numeroTrajet" : 1, "numeroPlace" : 36, "prix": 12.5,"heureDepart": "7:00","heureArrivee":"8:00" ,"date" : "2023-06--08","voyage":3}
- ]'  ); 
- 
- INSERT INTO Billet VALUES( 3, TRUE, 0, 'carte bancaire', '[   
-{"numeroTrajet" : 1, "numeroPlace": 44, "prix": 12.5,"heureDepart": "7:00","heureArrivee":"8:00" ,"date" : "2023-06--08","voyage":3}
- ]'  ); 
+INSERT INTO Billet VALUES( 0, FALSE, 0, 'carte bancaire', '[
+{"numeroTrajet" : 1, "numeroPlace" : 22, "prix": 12.5,"heureDepart": "08:00:00","heureArrivee":"11:55:00" ,"date" : "2023-05-05","voyage":1},
+{"numeroTrajet" : 2, "numeroPlace": 72, "prix": 50,"heureDepart": "13:30:00","heureArrivee":"23:12:00" ,"date" : "2023-06-08","voyage":5}
+     ]'  );
+
+INSERT INTO Billet VALUES( 1, TRUE, 0, 'Apple Pay', '[
+  {"numeroTrajet" : 1, "numeroPlace" : 12, "prix": 75,"heureDepart": "13:30:00","heureArrivee":"23:12:00" ,"date" : "2023-07-23","voyage":5}
+     ] ' );
+
+INSERT INTO Billet VALUES( 2, FALSE, 4, 'Monnaie', '[
+{"numeroTrajet" : 1, "numeroPlace": 44, "prix": 12.5,"heureDepart": "7:00","heureArrivee":"8:00" ,"date" : "2023-02-08","voyage":3}
+]'  );
+
+INSERT INTO Billet VALUES( 3, TRUE, 3, 'Apple Pay', '[
+{"numeroTrajet" : 1, "numeroPlace" : 36, "prix": 17,"heureDepart": "8:00:00","heureArrivee":"18:00:00" ,"date" : "2023-05-08","voyage":6}
+]'  );
+
+
+INSERT INTO Billet VALUES( 4, TRUE, 3, 'carte bancaire', '[
+ {"numeroTrajet" : 1, "numeroPlace" : 46, "prix": 17,"heureDepart": "17:00:00","heureArrivee":"18:00:00" ,"date" : "2023-05-08","voyage":6}
+]'  );
+
+INSERT INTO Billet VALUES( 5, FALSE, 0, 'carte bancaire', '[
+{"numeroTrajet" : 1, "numeroPlace": 44, "prix": 12.5,"heureDepart": "7:00:00","heureArrivee":"8:00:00" ,"date" : "2023-01-08","voyage":3}
+]'  );
+
 
 -- Ligne
 
@@ -186,7 +274,7 @@ INSERT INTO Ligne VALUES(4,'TGV');
 INSERT INTO Ligne VALUES(5,'TGV');
 
 
--- Les gares desservies par les lignes 
+-- Les gares desservies par les lignes
 
 INSERT INTO LigneDessert VALUES('Lyon Part-Dieu', 'Lyon',1, 0);
 INSERT INTO LigneDessert VALUES('Gare de Valence', 'Valence',1, 1);
@@ -208,8 +296,20 @@ INSERT INTO Voyage VALUES(1,'08:00:00',0,1, '[ {
 		"vendredi": true,
 		"samedi": true,
 	  	"dimanche": true,
-	    "exception": [ { "jour": "2023-05-01", "ajout": false }] 
-    }
+	    "exception": [ { "jour": "2023-05-01", "ajout": false }]
+    },
+    {
+    	    "dateDepart" : "2023-06-02",
+    	    "dateFin": "2023-12-31",
+    	    "lundi": true,
+    	    "mardi": true,
+    	    "mercredi": true,
+    		"jeudi": true,
+    		"vendredi": true,
+    		"samedi": true,
+    	  	"dimanche": true,
+    	    "exception": [ { "jour": "2023-07-03", "ajout": false }]
+        }
 ]');
 
 INSERT INTO Voyage VALUES(2,'08:30:00',1,1, '[
@@ -223,7 +323,7 @@ INSERT INTO Voyage VALUES(2,'08:30:00',1,1, '[
 		"vendredi": true,
 		"samedi": true,
 	  	"dimanche": true,
-	    "exception": [ { "jour": "2023-05-01", "ajout": false }] 
+	    "exception": [ { "jour": "2023-05-01", "ajout": false }]
 	}
 ]');
 
@@ -238,10 +338,10 @@ INSERT INTO Voyage VALUES(3,'09:00:00',3,2, '[
 		"vendredi": true,
 		"samedi": true,
 	  	"dimanche": true,
-	    "exception": [ 
+	    "exception": [
 	    	{ "jour": "2023-08-04", "ajout": true },
 	    	{ "jour": "2023-07-03", "ajout": false }
-	    ] 
+	    ]
 	}
 ]');
 
@@ -256,7 +356,7 @@ INSERT INTO Voyage VALUES(4,'10:00:00',4,3, '[
 		"vendredi": true,
 		"samedi": true,
 	  	"dimanche": true,
-	    "exception": [ { "jour": "2023-05-01", "ajout": false }] 
+	    "exception": [ { "jour": "2023-05-01", "ajout": false }]
     }
 ]');
 
@@ -268,11 +368,23 @@ INSERT INTO Voyage VALUES(5,'11:00:00',5,4, '[
 	    "mardi": true,
 	    "mercredi": true,
 		"jeudi": true,
-		"vendredi": true,
+		"vendredi": true,nom
 		"samedi": true,
 	  	"dimanche": true,
-	    "exception": [ { "jour": "2023-05-01", "ajout": false }] 
-    }
+	    "exception": [ { "jour": "2023-05-01", "ajout": false }]
+    },
+    {
+          "dateDepart" : "2023-06-02",
+          "dateFin": "2023-12-31",
+          "lundi": true,
+          "mardi": true,
+          "mercredi": true,
+        "jeudi": true,
+        "vendredi": true,
+        "samedi": true,
+          "dimanche": true,
+          "exception": [ { "jour": "2023-07-03", "ajout": false }]
+        }
 ]');
 
 INSERT INTO Voyage VALUES(6,'17:00:00',6,2, '[
@@ -286,7 +398,7 @@ INSERT INTO Voyage VALUES(6,'17:00:00',6,2, '[
 		"vendredi": true,
 		"samedi": true,
 	  	"dimanche": true,
-	    "exception": [ { "jour": "2023-05-01", "ajout": false }] 
+	    "exception": [ { "jour": "2023-05-01", "ajout": false }]
 	}
 ]');
 
@@ -306,5 +418,3 @@ INSERT INTO VoyageDessert VALUES('Gare du Nord', 'Paris',1,'11:55:00',NULL);
 INSERT INTO VoyageDessert VALUES('Gare du Nord', 'Paris',5, '13:20:00','13:30:00');
 INSERT INTO VoyageDessert VALUES('Gare du Nord', 'Paris',6,NULL,'17:00:00');
 INSERT INTO VoyageDessert VALUES('Gare Pompidou', 'Compiegne',6,'18:00:00',NULL);
-
-
