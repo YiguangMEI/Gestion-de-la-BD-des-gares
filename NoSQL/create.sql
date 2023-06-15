@@ -299,7 +299,7 @@ WHERE statut IS NULL;
 --   WHERE trajet.billet=idBillet
 -- )
 -- from billet;
-CREATE VIEW VPrixBillet (billet, prixBillet) AS
+CREATE VIEW VPrixBillet (idBillet, prixBillet) AS
 SELECT b.idBillet, SUM(CAST(t->>'prix' as FLOAT)) FROM billet b, JSON_ARRAY_ELEMENTS(b.trajet) t GROUP BY b.idBillet;
 
 -- -- Vue du nombre de personnes par train
