@@ -172,9 +172,6 @@ def consultation_billets(conn):
 		# ------
 		# Avec toutes les infos récoltées sur les départs et les arrivées, on peut rendre quelque chose à l'écran
 
-		from pprint import pprint
-		pprint(data)
-
 		print("Réservations : ")
 		for billet in data:
 			info = data[billet]
